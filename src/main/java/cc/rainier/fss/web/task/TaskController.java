@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
 
+import cc.rainier.fss.web.BaseController;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,7 +39,7 @@ import com.google.common.collect.Maps;
  */
 @Controller
 @RequestMapping(value = "/task")
-public class TaskController {
+public class TaskController extends BaseController{
 
 	private static final String PAGE_SIZE = "3";
 
@@ -119,11 +120,4 @@ public class TaskController {
 		}
 	}
 
-	/**
-	 * 取出Shiro中的当前用户Id.
-	 */
-	private Long getCurrentUserId() {
-		ShiroUser user = (ShiroUser) SecurityUtils.getSubject().getPrincipal();
-		return user.id;
-	}
 }
