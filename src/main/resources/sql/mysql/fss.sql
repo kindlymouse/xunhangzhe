@@ -28,7 +28,7 @@ CREATE TABLE fs_flight_plan (
 	departure_time CHAR(4) NULL DEFAULT NULL,
 	cruising_speed VARCHAR(5) NULL DEFAULT NULL,
 	flight_level VARCHAR(5) NULL DEFAULT NULL,
-	route VARCHAR(3000) NULL DEFAULT NULL,
+	route VARCHAR(1000) NULL DEFAULT NULL,
 	destination_aerodrome VARCHAR(4) NULL DEFAULT NULL,
 	total_eet CHAR(50) NULL DEFAULT NULL,
 	altn_aerodrome VARCHAR(4) NULL DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE fs_flight_plan (
 	pilot_in_command VARCHAR(100) NULL DEFAULT NULL,
 	filed_by VARCHAR(100) NULL DEFAULT NULL,
 	telephone VARCHAR(100) NULL DEFAULT NULL,
-	sys_fill_user INT NULL DEFAULT NULL,
+	sys_fill_user_id INT NULL DEFAULT NULL,
 	sys_fill_time TIMESTAMP NULL DEFAULT NULL,
 	PRIMARY KEY (id)
 )
