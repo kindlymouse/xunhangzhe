@@ -32,7 +32,7 @@ CREATE TABLE fs_flight_plan (
 	destination_aerodrome VARCHAR(4) NULL DEFAULT NULL,
 	total_eet CHAR(50) NULL DEFAULT NULL,
 	altn_aerodrome VARCHAR(4) NULL DEFAULT NULL,
-	altn_2rd_aerodrome VARCHAR(4) NULL DEFAULT NULL,
+	altn2rd_aerodrome VARCHAR(4) NULL DEFAULT NULL,
 	other_information VARCHAR(1000) NULL DEFAULT NULL,
 	endurance CHAR(4) NULL DEFAULT NULL,
 	persons_on_board SMALLINT NULL DEFAULT NULL,
