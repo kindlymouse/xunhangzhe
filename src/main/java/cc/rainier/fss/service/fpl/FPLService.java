@@ -45,7 +45,7 @@ public class FPLService {
         return (List<FlightPlan>) fplDao.findAll();
     }
 
-    public Page<FlightPlan> getUserTask(Long userId, Map<String, Object> searchParams, int pageNumber, int pageSize,
+    public Page<FlightPlan> getUserFPL(Long userId, Map<String, Object> searchParams, int pageNumber, int pageSize,
                                   String sortType) {
         PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
         Specification<FlightPlan> spec = buildSpecification(userId, searchParams);
