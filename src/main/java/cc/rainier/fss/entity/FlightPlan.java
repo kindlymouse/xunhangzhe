@@ -56,6 +56,9 @@ public class FlightPlan extends IdEntity{
     private String telephone;
     private User sysFillUser;
     private Date sysFillTime;
+    private String auditStatus;
+    private String auditNote;
+    private Date auditTime;
 
     public FlightPlan(){
     }
@@ -356,5 +359,31 @@ public class FlightPlan extends IdEntity{
 
     public void setSysFillTime(Date sysFillTime) {
         this.sysFillTime = sysFillTime;
+    }
+
+
+    public String getAuditStatus() {
+        return auditStatus;
+    }
+
+    public void setAuditStatus(String auditStatus) {
+        this.auditStatus = auditStatus;
+    }
+
+    public String getAuditNote() {
+        return auditNote;
+    }
+
+    public void setAuditNote(String auditNote) {
+        this.auditNote = auditNote;
+    }
+    // 设定JSON序列化时的日期格式
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
+    public Date getAuditTime() {
+        return auditTime;
+    }
+
+    public void setAuditTime(Date auditTime) {
+        this.auditTime = auditTime;
     }
 }
