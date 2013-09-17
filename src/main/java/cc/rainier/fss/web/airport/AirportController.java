@@ -1,7 +1,7 @@
-package cc.rainier.fss.web.fpl;
+package cc.rainier.fss.web.airport;
 
-import cc.rainier.fss.entity.FlightPlan;
-import cc.rainier.fss.service.fpl.FPLService;
+import cc.rainier.fss.entity.Airport;
+import cc.rainier.fss.service.airport.AirportService;
 import cc.rainier.fss.web.BaseController;
 import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +18,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 管理员管理FPL的Controller.
+ * 管理员管理Airport的Controller.
  * 
  * @author zzyang
  */
 @Controller
-@RequestMapping(value = "/plan")
-public class FPLController extends BaseController {
+@RequestMapping(value = "/airport")
+public class AirportController extends BaseController {
 
     private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
     static {
         sortTypes.put("auto", "自动");
-        sortTypes.put("addressee", "ADDRESSEE");
+        sortTypes.put("code", "编码");
+        sortTypes.put("name", "标题");
     }
 
 	@Autowired
-	private FPLService fplService;
+	private AirportService airportService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String list(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
@@ -41,38 +42,46 @@ public class FPLController extends BaseController {
                        @RequestParam(value = "sortType", defaultValue = "auto") String sortType, Model model,
                        ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
-        Long userId = getCurrentUserId();
+//        Long userId = getCurrentUserId();
 
-        Page<FlightPlan> plans = fplService.getUserFPL(userId, searchParams, pageNumber, pageSize, sortType);
+        Page<Airport> airports = airportService.getUserAirport(null ,searchParams, pageNumber, pageSize, sortType);
 
-        model.addAttribute("plans", plans);
+        model.addAttribute("airports", airports);
         model.addAttribute("sortType", sortType);
         model.addAttribute("sortTypes", sortTypes);
         // 将搜索条件编码成字符串，用于排序，分页的URL
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
-        return "plan/planList";
+        return "info/airportList";
     }
+    
+    
+//	@RequestMapping(method = RequestMethod.GET)
+//	public String list(Model model) {
+//        List<Airport> airports = airportService.getAllAirport();
+//        model.addAttribute("airports",airports);
+//        return "info/airportList";
+//	}
 
 	@RequestMapping(value = "audit/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("plan", fplService.getFlightPlan(id));
-		return "plan/planForm";
+		model.addAttribute("airport", airportService.getAirport(id));
+		return "info/airportForm";
 	}
 
 	@RequestMapping(value = "audit", method = RequestMethod.POST)
-	public String update(@Valid @ModelAttribute("plan") FlightPlan plan, RedirectAttributes redirectAttributes) {
-		fplService.saveFlightPlan(plan);
+	public String update(@Valid @ModelAttribute("airport") Airport airport, RedirectAttributes redirectAttributes) {
+		airportService.saveAirport(airport);
         redirectAttributes.addFlashAttribute("message", "操作成功");
-        return "redirect:/plan/";
+        return "redirect:/info/";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-		FlightPlan plan = fplService.getFlightPlan(id);
-        fplService.deleteFlightPlan(id);
-		redirectAttributes.addFlashAttribute("message", "删除计划[" + plan.getId() + "]成功");
-		return "redirect:/plan/";
+		Airport airport = airportService.getAirport(id);
+        airportService.deleteAirport(id);
+		redirectAttributes.addFlashAttribute("message", "删除计划[" + airport.getId() + "]成功");
+		return "redirect:/info/";
 	}
 
 	/**
@@ -82,7 +91,7 @@ public class FPLController extends BaseController {
 	@ModelAttribute
 	public void getFightPlan(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
 		if (id != -1) {
-			model.addAttribute("plan", fplService.getFlightPlan(id));
+			model.addAttribute("airport", airportService.getAirport(id));
 		}
 	}
 }

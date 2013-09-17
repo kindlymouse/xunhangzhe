@@ -3,6 +3,7 @@ package cc.rainier.fss.service.task;
 import java.util.List;
 import java.util.Map;
 
+import cc.rainier.fss.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +22,7 @@ import org.springside.modules.persistence.SearchFilter.Operator;
 @Component
 // 默认将类中的所有public函数纳入事务管理.
 @Transactional
-public class TaskService {
+public class TaskService extends BaseService {
 
 	private TaskDao taskDao;
 
@@ -49,31 +50,16 @@ public class TaskService {
 		return taskDao.findAll(spec, pageRequest);
 	}
 
-	/**
-	 * 创建分页请求.
-	 */
-	private PageRequest buildPageRequest(int pageNumber, int pagzSize, String sortType) {
-		Sort sort = null;
-		if ("auto".equals(sortType)) {
-			sort = new Sort(Direction.DESC, "id");
-		} else if ("title".equals(sortType)) {
-			sort = new Sort(Direction.ASC, "title");
-		}
-
-		return new PageRequest(pageNumber - 1, pagzSize, sort);
-	}
-
-	/**
-	 * 创建动态查询条件组合.
-	 */
-	private Specification<Task> buildSpecification(Long userId, Map<String, Object> searchParams) {
-		Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
-		filters.put("user.id", new SearchFilter("user.id", Operator.EQ, userId));
-		Specification<Task> spec = DynamicSpecifications.bySearchFilter(filters.values(), Task.class);
-		return spec;
-	}
-
-	@Autowired
+    /**
+     * 创建动态查询条件组合.
+     */
+    protected Specification<Task> buildSpecification(Long userId, Map<String, Object> searchParams) {
+        Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
+        filters.put("user.id", new SearchFilter("user.id", SearchFilter.Operator.EQ, userId));
+        Specification<Task> spec = DynamicSpecifications.bySearchFilter(filters.values(), Task.class);
+        return spec;
+    }
+    @Autowired
 	public void setTaskDao(TaskDao taskDao) {
 		this.taskDao = taskDao;
 	}

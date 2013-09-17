@@ -1,58 +1,34 @@
-package cc.rainier.fss.web.fpl;
+package cc.rainier.fss.web.airport;
 
 import cc.rainier.fss.entity.FlightPlan;
 import cc.rainier.fss.service.fpl.FPLService;
-import cc.rainier.fss.web.BaseController;
-import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springside.modules.web.Servlets;
 
-import javax.servlet.ServletRequest;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
 
 /**
- * 管理员管理FPL的Controller.
+ * 管理员管理Airport的Controller.
  * 
  * @author zzyang
  */
 @Controller
-@RequestMapping(value = "/plan")
-public class FPLController extends BaseController {
-
-    private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
-    static {
-        sortTypes.put("auto", "自动");
-        sortTypes.put("addressee", "ADDRESSEE");
-    }
+@RequestMapping(value = "/lanport")
+public class LandportController {
 
 	@Autowired
 	private FPLService fplService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String list(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                       @RequestParam(value = "page.size", defaultValue = PAGE_SIZE) int pageSize,
-                       @RequestParam(value = "sortType", defaultValue = "auto") String sortType, Model model,
-                       ServletRequest request) {
-        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
-        Long userId = getCurrentUserId();
-
-        Page<FlightPlan> plans = fplService.getUserFPL(userId, searchParams, pageNumber, pageSize, sortType);
-
-        model.addAttribute("plans", plans);
-        model.addAttribute("sortType", sortType);
-        model.addAttribute("sortTypes", sortTypes);
-        // 将搜索条件编码成字符串，用于排序，分页的URL
-        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
-
+	@RequestMapping(method = RequestMethod.GET)
+	public String list(Model model) {
+        List<FlightPlan> plans = fplService.getAllFlightPlan();
+        model.addAttribute("plans",plans);
         return "plan/planList";
-    }
+	}
 
 	@RequestMapping(value = "audit/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") Long id, Model model) {

@@ -1,9 +1,11 @@
 package cc.rainier.fss.entity;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -107,4 +109,5 @@ public class User extends IdEntity {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
 	}
+
 }

@@ -20,7 +20,19 @@
             border:1px solid #000;
             padding-left:5px;
             padding-right:5px;
+            height:30px;
         }
+
+        #pm .c_1{
+            width:30px;
+        }
+        #pm .c_2{
+            width:50px;
+        }
+        #pm .c_3{
+            width:70px;
+        }
+
         #pm .mt10{
             margin-top:10px;
         }
@@ -327,7 +339,7 @@
                 </div>
                 <div class="span3">
                     <label>&nbsp;&nbsp;&nbsp;&nbsp;COLOUR</label>
-                    <div> -><span class="s_char">XXXXXXXX</span> </div>
+                    <div> -><span class="s_char">${plan.dingiesColour}</span> </div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -342,7 +354,7 @@
                 </div>
                 <div class="span11">
                     <label>AIRCRAFT COLOUR AND MARKINGS</label>
-                    <div class="s_char"> XXXXX</div>
+                    <div class="s_char"> ${plan.aircraftColourAndMarkings}</div>
                 </div>
             </div>
             <div class="row-fluid mt10">
@@ -352,7 +364,7 @@
                 </div>
                 <div class="span10">
                     <label>REMARKS</label>
-                    <div class="s_char"> XXXXX</div>
+                    <div class="s_char"> ${plan.remarks}</div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -366,7 +378,7 @@
                 </div>
                 <div class="span7">
                     <label>PILOT IN COMMAND</label>
-                    <div class="s_char"> XXXXX </div>
+                    <div class="s_char"> ${plan.pilotInCommand} </div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -381,12 +393,12 @@
             </div>
             <div class="row-fluid" style="border-top:1px solid #000;border-bottom:1px solid #000;">
                 <div class="span5">
-
+                    ${plan.filedBy}
                 </div>
                 <div class="span7" style="border-left:1px solid #000;">
                     <div class="row-fluid">
                         <div class="span12" style="margin-left:5px;font-size:14px;">Please provide a telephone number so our operators can contact you if needed.</div>
-                        <div class="span12" style="margin-left:5px;">xxxxxxxxxxxxxxxxxxxxxxxx</div>
+                        <div class="span12" style="margin-left:5px;">${plan.telephone}</div>
                     </div>
                 </div>
 
@@ -401,8 +413,8 @@
                 <textarea name="auditNote" rows="4" style="width:96%;">${plan.auditNote}</textarea>
             </div>
             <div class="span2">
-                <label class="radio ml10"><input type="radio" name="auditStatus"  value="YES">Yes</label>
-                <label class="radio ml10"><input type="radio" name="auditStatus"  value="NO">No</label>
+                <label class="radio ml10"><input type="radio" <c:if test="${plan.auditStatus=='YES'}">checked="checked"</c:if> name="auditStatus"  value="YES">Yes</label>
+                <label class="radio ml10"><input type="radio"  <c:if test="${plan.auditStatus=='NO'}">checked="checked"</c:if>name="auditStatus"  value="NO">No</label>
             </div>
             <div class="span2">
                 <br/>

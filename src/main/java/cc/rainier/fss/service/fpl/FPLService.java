@@ -72,7 +72,9 @@ public class FPLService {
      */
     private Specification<FlightPlan> buildSpecification(Long userId, Map<String, Object> searchParams) {
         Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
-        filters.put("user.id", new SearchFilter("user.id", SearchFilter.Operator.EQ, userId));
+        if(userId!=0L){
+            filters.put("sysFillUser.id", new SearchFilter("sysFillUser.id", SearchFilter.Operator.EQ, userId));
+        }
         Specification<FlightPlan> spec = DynamicSpecifications.bySearchFilter(filters.values(), FlightPlan.class);
         return spec;
     }
@@ -81,4 +83,6 @@ public class FPLService {
     public void setFlightPlanDao(FlightPlanDao fplDao) {
         this.fplDao = fplDao;
     }
+
+
 }
