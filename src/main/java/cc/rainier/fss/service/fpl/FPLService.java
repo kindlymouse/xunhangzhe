@@ -71,6 +71,7 @@ public class FPLService {
      * 创建动态查询条件组合.
      */
     private Specification<FlightPlan> buildSpecification(Long userId, Map<String, Object> searchParams) {
+        if ( searchParams == null ) return null;
         Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
         if(userId!=0L){
             filters.put("sysFillUser.id", new SearchFilter("sysFillUser.id", SearchFilter.Operator.EQ, userId));
