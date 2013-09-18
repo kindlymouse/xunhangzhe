@@ -16,15 +16,15 @@
 	<div class="row">
 		<div class="span4 offset3">
 			<form class="form-search" action="#">
-				<label>名称：</label> <input type="text" name="search_LIKE_title" class="input-medium" value="${param.search_LIKE_title}">
-				<button type="submit" class="btn" id="search_btn">Search</button>
+				<label>标题：</label> <input type="text" name="search_LIKE_title" class="input-medium" value="${param.search_LIKE_title}">
+				<button type="submit" class="btn" id="search_btn">查询</button>
 		    </form>
 	    </div>
-        <div><a class="btn" href="${ctx}/msg/create">创建简报</a></div> <tags:sort/>
+        <div class="span2"><a class="btn" href="${ctx}/brief/create">创建简报</a></div> <tags:sort/>
 	</div>
 
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th width="20">#</th><th  width="240">标题</th><th>内容</th><th  width="60">发布人</th><th  width="120">发布日期</th><th  width="80">管理</th></tr></thead>
+		<thead><tr><th width="20">#</th><th  width="300">标题</th><th>内容</th><th  width="60">发布人</th><th  width="120">发布日期</th><th  width="80">管理</th></tr></thead>
 		<tbody>
 		<c:forEach items="${briefs.content}" var="brief"  varStatus="status">
 			<tr>

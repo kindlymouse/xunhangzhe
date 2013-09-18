@@ -53,6 +53,7 @@ public class Airport extends IdEntity {
     private String taxiwayShoulder;
     private String rampSize;
     private String rampPcn;
+    private String rampCode;
     private String navaidSymbol;
     private String navaidLamp;
     private String deviceWeather;
@@ -363,6 +364,13 @@ public class Airport extends IdEntity {
         this.rampPcn = rampPcn;
     }
 
+    public String getRampCode() {
+        return rampCode;
+    }
+
+    public void setRampCode(String rampCode) {
+        this.rampCode = rampCode;
+    }
 
     public String getNavaidSymbol() {
         return navaidSymbol;

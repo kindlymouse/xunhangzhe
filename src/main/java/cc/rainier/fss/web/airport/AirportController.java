@@ -1,6 +1,7 @@
 package cc.rainier.fss.web.airport;
 
 import cc.rainier.fss.entity.Airport;
+import cc.rainier.fss.entity.User;
 import cc.rainier.fss.service.airport.AirportService;
 import cc.rainier.fss.web.BaseController;
 import com.google.common.collect.Maps;
@@ -14,7 +15,6 @@ import org.springside.modules.web.Servlets;
 
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,7 +30,7 @@ public class AirportController extends BaseController {
     static {
         sortTypes.put("auto", "自动");
         sortTypes.put("code", "编码");
-        sortTypes.put("name", "标题");
+        sortTypes.put("name", "机场名称");
     }
 
 	@Autowired
@@ -44,7 +44,7 @@ public class AirportController extends BaseController {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
 //        Long userId = getCurrentUserId();
 
-        Page<Airport> airports = airportService.getUserAirport(null ,searchParams, pageNumber, pageSize, sortType);
+        Page<Airport> airports = airportService.getUserAirport(null, searchParams, pageNumber, pageSize, sortType);
 
         model.addAttribute("airports", airports);
         model.addAttribute("sortType", sortType);
@@ -62,26 +62,42 @@ public class AirportController extends BaseController {
 //        model.addAttribute("airports",airports);
 //        return "info/airportList";
 //	}
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public String createForm(Model model) {
+        model.addAttribute("airport", new Airport());
+        model.addAttribute("action", "create");
+        return "info/airportForm";
+    }
 
-	@RequestMapping(value = "audit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "create", method = RequestMethod.POST)
+    public String create(@Valid Airport newAirport, RedirectAttributes redirectAttributes) {
+        User user = new User(getCurrentUserId());
+        newAirport.setSysFillUser(user);
+
+        airportService.saveAirport(newAirport);
+        redirectAttributes.addFlashAttribute("message", "创建机场成功");
+        return "redirect:/airport/";
+    }
+	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
 	public String updateForm(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("airport", airportService.getAirport(id));
-		return "info/airportForm";
+        model.addAttribute("action", "update");
+        return "info/airportForm";
 	}
 
-	@RequestMapping(value = "audit", method = RequestMethod.POST)
+	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(@Valid @ModelAttribute("airport") Airport airport, RedirectAttributes redirectAttributes) {
 		airportService.saveAirport(airport);
         redirectAttributes.addFlashAttribute("message", "操作成功");
-        return "redirect:/info/";
+        return "redirect:/airport/";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
 		Airport airport = airportService.getAirport(id);
         airportService.deleteAirport(id);
-		redirectAttributes.addFlashAttribute("message", "删除计划[" + airport.getId() + "]成功");
-		return "redirect:/info/";
+		redirectAttributes.addFlashAttribute("message", "删除机场[#" + airport.getCode() + "#" + airport.getName() + "]成功");
+		return "redirect:/airport/";
 	}
 
 	/**
@@ -89,7 +105,7 @@ public class AirportController extends BaseController {
 	 * 因为仅update()方法的form中有id属性，因此仅在update时实际执行.
 	 */
 	@ModelAttribute
-	public void getFightPlan(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
+	public void getAirport(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
 		if (id != -1) {
 			model.addAttribute("airport", airportService.getAirport(id));
 		}

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <html>
@@ -15,33 +16,30 @@
             font-weight:bold;
         }
         #pm .s_char{
-            font-size:25px;
-            letter-spacing: 2px;
             border:1px solid #000;
-            padding-left:5px;
-            padding-right:5px;
             height:30px;
+            padding-left:8px;
+            padding-right:8px;
+            display: inline-block;
         }
 
-        #pm .c_1{
-            width:30px;
-        }
-        #pm .c_2{
-            width:50px;
-        }
-        #pm .c_3{
-            width:70px;
+        #pm span.s_char span{
+            font-size:25px;
+            letter-spacing: 3px;
+            display: inline-block;
         }
 
-        #pm .mt10{
-            margin-top:10px;
-        }
-        #pm .ml10{
-            margin-left:10px;
-        }
-        #pm .txt_r{
-            text-align: right;
-        }
+        #pm .c_1{width:20px;}
+        #pm .c_2{width:40px;}
+        #pm .c_3{width:60px;}
+        #pm .c_4{width:80px;}
+        #pm .c_5{width:100px;}
+        #pm .c_6{width:120px;}
+        #pm .c_7{width:140px;}
+        #pm .c_8{width:160px;}
+        #pm .mt10{margin-top:10px;}
+        #pm .ml10{margin-left:10px;}
+        #pm .txt_r{text-align: right;}
 
     </style>
 </head>
@@ -52,7 +50,6 @@
     <fieldset>
     <legend><small>计划审核</small></legend>
     <div id="pm" class="container" style="border:1px solid #000;width:980px;height:1650px;">
-    <!--<div><img src="pf.png"/></div>-->
     <!-- plan header -->
     <div class="row-fluid">
         <div class="span12 text-center" style="border:1px solid #000;">
@@ -78,10 +75,10 @@
                     </div>
                     <div class="row-fluid">
                         <div class="span12" style="height:90px;padding-left:5px;border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;">
-                            ${plan.addressee}
+                            <div style="float:left;">${plan.addressee}
                             This is a test.
-                            This is a test.
-                            <div style="position:relative;float:right;top:60px;width:60px;"><< ≡</div>
+                            This is a test.</div>
+                            <div style="position:relative;float:right;top:60px;width:60px;display: inline;"><< ≡</div>
                         </div>
                     </div>
                 </div>
@@ -92,17 +89,17 @@
                 <div class="span2">
                     <label class="plan_til_label">FILING TIME</label>
                     <div>
-                        <span class="s_char">&nbsp;${plan.filingTime}</span>
+                        <span class="s_char"><span class="c_5">${plan.filingTime}</span></span>
                     </div>
                 </div>
-                <div class="span2">
-                    <label>&nbsp;</label>
+                <div class="span1">
+                    <div>&nbsp;</div>
                     <div style="text-align: center;">→</div>
                 </div>
-                <div class="span2">
+                <div class="span3">
                     <label class="plan_til_label">ORIGINATOR</label>
                     <div>
-                        <span class="s_char">&nbsp;${plan.originator}</span>
+                        <span class="s_char"><span class="c_8">${plan.originator}</span></span>
                     </div>
                 </div>
                 <div class="span1">
@@ -130,21 +127,21 @@
                 <div class="span3">
                     <label  class="plan_til_label">7 AIRCRAFT IDENTIFICATION</label>
                     <div>
-                        - <span class="s_char">&nbsp;${plan.aircraftIdentification}</span>
+                        - <span class="s_char"><span class="c_7">${plan.aircraftIdentification}</span>
                     </div>
                 </div>
                 <div class="span3">
                     <label  class="plan_til_label">8 FLIGHT RULES</label>
                     <div>
-                        - <span class="s_char">&nbsp;${plan.flightRules}</span>
+                        - <span class="s_char"><span class="c_1">${plan.flightRules}</span>
                     </div>
                 </div>
                 <div class="span2">
                     <label  class="plan_til_label">TYPE OF FLIGHT</label>
-                    <div><span class="s_char">&nbsp;${plan.typeOfFlight}</span></div>
+                    <div><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></div>
                 </div>
                 <div class="span1">
-                    <label  class="plan_til_label">&nbsp;</label>
+                    <label  class="plan_til_label"></label>
                     <div><<≡</div>
                 </div>
             </div>
@@ -152,25 +149,25 @@
                 <div class="span2">
                     <label  class="ml10">9 NUMBER</label>
                     <div  class="ml10">
-                        - <span class="s_char">&nbsp;${plan.flightNumber}</span>
+                        - <span class="s_char"><span class="c_2">${plan.flightNumber}</span></span>
                     </div>
                 </div>
                 <div class="span3">
                     <label  class="plan_til_label">TYPE OF AIRCARAFT</label>
                     <div>
-                        <span class="s_char">&nbsp;${plan.typeOfAircraft}</span>
+                        <span class="s_char"><span class="c_4">${plan.typeOfAircraft}</span></span>
                     </div>
                 </div>
                 <div class="span3">
                     <label>WAKE TURBULENCE CAT</label>
                     <div>
-                        / <span class="s_char">&nbsp;${plan.wakeTurbulenceCat}</span>
+                        / <span class="s_char"><span class="c_1">${plan.wakeTurbulenceCat}</span></span>
                     </div>
                 </div>
                 <div class="span3">
                     <label>10 EQUIPMENT</label>
                     <div>
-                        - <span class="s_char">&nbsp;${plan.equipment}</span>
+                        - <span class="s_char"><span class="c_4">${plan.equipment}</span></span>
                     </div>
                 </div>
                 <div class="span1">
@@ -182,12 +179,12 @@
                 <div class="span4">
                     <label  class="ml10">13 DEPARTURE AERODROME</label>
                     <div  class="ml10">
-                        - <span class="s_char">&nbsp;${plan.departureAerodrome}</span>
+                        - <span class="s_char"><span class="c_4">${plan.departureAerodrome}</span></span>
                     </div>
                 </div>
                 <div class="span3">
                     <label>TIME</label>
-                    <div><span class="s_char">&nbsp;${plan.departureTime}</span></div>
+                    <div><span class="s_char"><span class="c_4">${plan.departureTime}</span></span></div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -198,11 +195,11 @@
             <div class="row-fluid mt10">
                 <div class="span2">
                     <label  class="ml10">15 CRUISING SPEED</label>
-                    <div  class="ml10">- <span class="s_char">&nbsp;${plan.cruisingSpeed}</span></div>
+                    <div  class="ml10">- <span class="s_char"><span class="c_5">${plan.cruisingSpeed}</span></span></div>
                 </div>
                 <div class="span2">
                     <label><br/>LEVEL</label>
-                    <div><span class="s_char">&nbsp;${plan.flightLevel}</span></div>
+                    <div><span class="s_char"><span class="c_5">${plan.flightLevel}</span></span></div>
                 </div>
                 <div class="span8">
                     <label><br/>ROUTE</label>
@@ -215,22 +212,22 @@
             <div class="row-fluid mt10">
                 <div class="span3">
                     <label  class="ml10">16 DESTINATION <br/>AERODROME</label>
-                    <div  class="ml10">- <span class="s_char"> ${plan.destinationAerodrome}</span></div>
+                    <div  class="ml10">- <span class="s_char"> <span class="c_4">${plan.destinationAerodrome}</span></span></div>
                 </div>
                 <div class="span2">
                     <label>TOTAL EET<br/>HR. MIN</label>
-                    <div><span class="s_char"> ${plan.totalEet}</span></div>
+                    <div><span class="s_char"><span class="c_4"> ${plan.totalEet}</span></span></div>
                 </div>
                 <div class="span3">
                     <label><br/>ALTN AERODROME</label>
-                    <div>-> <span class="s_char"> ${plan.altnAerodrome}</span></div>
+                    <div>-> <span class="s_char"> <span class="c_4">${plan.altnAerodrome}</span></span></div>
                 </div>
                 <div class="span3">
                     <label><br/>2ND ALTN AERODROME</label>
-                    <div>-> <span class="s_char"> ${plan.altn2rdAerodrome}</span></div>
+                    <div>-> <span class="s_char"><span class="c_4">${plan.altn2rdAerodrome}</span></span></div>
                 </div>
                 <div class="span1">
-                    <label><br/>&nbsp;</label>
+                    <label>&nbsp;<br/>&nbsp;</label>
                     <div><<≡</div>
                 </div>
             </div>
@@ -254,11 +251,11 @@
                     <div class="row-fluid">
                         <div class="span6">
                             <label class="ml10">HR MIN</label>
-                            <div class="ml10">- E / <span class="s_char"> ${plan.endurance}</span></div>
+                            <div class="ml10">- E / <span class="s_char"><span class="c_4">${plan.endurance}</span></span></div>
                         </div>
                         <div class="span6">
                             <label>PERSONS ON BOARD</label>
-                            <div>-> P / <span class="s_char"> ${plan.personsOnBoard}</span></div>
+                            <div>-> P / <span class="s_char"><span class="c_3">${plan.personsOnBoard}</span></span></div>
                         </div>
                     </div>
                 </div>
@@ -266,15 +263,15 @@
                     <label>EMERGENCY RADIO</label>
                     <div class="span4">
                         <label>UHF</label>
-                        <div>-> R / <span class="s_char">${plan.emergencyRadio}</span></div>
+                        <div>-> R / <span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.emergencyRadio,'U')}">U</c:if> </span></span></div>
                     </div>
                     <div class="span4">
                         <label>VHF</label>
-                        <div><span class="s_char">V</span></div>
+                        <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.emergencyRadio,'V')}">V </c:if></span></span></div>
                     </div>
                     <div class="span3">
                         <label>ELT</label>
-                        <div><span class="s_char">E</span></div>
+                        <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.emergencyRadio,'E')}">E </c:if></span></span></div>
                     </div>
                 </div>
             </div>
@@ -285,61 +282,61 @@
                 </div>
                 <div class="span1">
                     <label><br/>POLAR</label>
-                    <div>/ <span class="s_char">P</span></div>
+                    <div>/ <span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'P')}">P </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>DESERT</label>
-                    <div><span class="s_char">D</span></div>
+                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'D')}">D </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>MARITIME</label>
-                    <div><span class="s_char">M</span></div>
+                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'M')}">M </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>JUNGLE</label>
-                    <div><span class="s_char">J</span></div>
+                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'J')}">J </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>JACKETS</label>
-                    <div><span class="s_char">J</span></div>
+                    <div><span class="s_char"><span class="c_1">J</span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>LIGHT</label>
-                    <div>/ <span class="s_char">L</span></div>
+                    <div>/ <span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'L')}">L </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>FLUORES</label>
-                    <div><span class="s_char">F</span></div>
+                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'F')}">F </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>UHF</label>
-                    <div><span class="s_char">U</span></div>
+                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'U')}">U </c:if></span></span></div>
                 </div>
                 <div class="span1">
                     <label><br/>VHF</label>
-                    <div><span class="s_char">V</span></div>
+                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'V')}">V</c:if></span></span></div>
                 </div>
                 <div class="span1"></div>
             </div>
             <div class="row-fluid mt10">
                 <div class="span2">
-                    <label class="ml10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUMBER</label>
+                    <label class="ml10">NUMBER</label>
                     <div class="ml10">
-                        -> <span class="s_char">D</span>
-                        / <span class="s_char">XX</span>
+                        -> <span class="s_char"><span class="c_1">D</span></span>
+                        / <span class="s_char"><span class="c_2"><fmt:formatNumber value="${plan.dingiesNumber}" pattern="##"/></span></span>
                     </div>
                 </div>
                 <div class="span2">
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAPACITY</label>
-                    <div> -> <span class="s_char">XXX</span></div>
+                    <label>CAPACITY</label>
+                    <div> -> <span class="s_char"><span class="c_3">${plan.dingiesCapacity}</span></span></div>
                 </div>
                 <div class="span1">
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;COVER</label>
-                    <div> -> <span class="s_char">C</span></div>
+                    <label>COVER</label>
+                    <div> -> <span class="s_char"><span class="c_1">${plan.dingiesCover}</span></span></div>
                 </div>
                 <div class="span3">
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;COLOUR</label>
-                    <div> -><span class="s_char">${plan.dingiesColour}</span> </div>
+                    <label>COLOUR</label>
+                    <div> -><span class="s_char"><span class="c_9">${plan.dingiesColour}</span></span></div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -354,7 +351,7 @@
                 </div>
                 <div class="span11">
                     <label>AIRCRAFT COLOUR AND MARKINGS</label>
-                    <div class="s_char"> ${plan.aircraftColourAndMarkings}</div>
+                    <div class="s_char span12" style="margin-left:0px;"> ${plan.aircraftColourAndMarkings}</div>
                 </div>
             </div>
             <div class="row-fluid mt10">
@@ -364,7 +361,7 @@
                 </div>
                 <div class="span10">
                     <label>REMARKS</label>
-                    <div class="s_char"> ${plan.remarks}</div>
+                    <div class="s_char span12" style="margin-left:0px;"> ${plan.remarks}</div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -378,7 +375,7 @@
                 </div>
                 <div class="span7">
                     <label>PILOT IN COMMAND</label>
-                    <div class="s_char"> ${plan.pilotInCommand} </div>
+                    <div class="s_char span12"  style="margin-left:0px;"> ${plan.pilotInCommand} </div>
                 </div>
                 <div class="span1">
                     <label>&nbsp;</label>
@@ -388,7 +385,7 @@
             </div>
 
             <div class="row-fluid mt10">
-                <div class="span5" style="font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;FIELD BY</div>
+                <div class="span5" style="font-size:16px;">FIELD BY</div>
                 <div class="span7" style="font-size:16px;">SPACE RESERVED FOR ADDITIONAL REQUIREMENTS</div>
             </div>
             <div class="row-fluid" style="border-top:1px solid #000;border-bottom:1px solid #000;">
@@ -418,7 +415,7 @@
             </div>
             <div class="span2">
                 <br/>
-                <input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>&nbsp;
+                <input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>
                 <input id="cancel_btn" class="btn" type="button" value="返回" onclick="history.back()"/>
             </div>
             <div class="span12" style="height:10px;"></div>

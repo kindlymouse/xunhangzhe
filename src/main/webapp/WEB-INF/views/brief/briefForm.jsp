@@ -4,6 +4,12 @@
 <html>
 <head>
 	<title>简报管理</title>
+    <script type="text/javascript" src="${ctx}/static/ueditor/umeditor.config.js"></script>
+    <script type="text/javascript" src="${ctx}/static/ueditor/umeditor.js"></script>
+    <link type="text/css" href="${ctx}/static/ueditor/themes/default/css/umeditor.css"/>
+
+
+
 </head>
 
 <body>
@@ -18,9 +24,14 @@
 				</div>
 			</div>	
 			<div class="control-group">
-				<label for="description" class="control-label">内容:</label>
+				<label for="brief_content" class="control-label">内容:</label>
 				<div class="controls">
-					<textarea id="description" name="description" class="input-large">${brief.content}</textarea>
+					<%--<textarea id="brief_content" name="content" class="input-large">${brief.content}</textarea>--%>
+                   <div id="brief_contentxx"></div>
+                    <script type="text/javascript" charset="utf-8">
+                        var editor = new baidu.editor.ui.Editor();
+                        editor.render('brief_contentxx');  //editor为编辑器容器的id
+                    </script>
 				</div>
 			</div>	
 			<div class="form-actions">

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <html>
@@ -13,9 +14,10 @@
 		<div id="message" class="alert alert-success"><button data-dismiss="alert" class="close">×</button>${message}</div>
 	</c:if>
     <div class="row">
-        <div class="span5 offset6">
+        <div class="span5 offset3">
             <form class="form-search" action="#">
-                <label>ADDRESSEE(S)：</label> <input type="text" name="search_LIKE_ADDRESSEE" class="input-medium" value="${param.search_LIKE_ADDRESSEE}"><button type="submit" class="btn" id="search_btn">Search</button>
+                <label>ADDRESSEE(S)：</label> <input type="text" name="search_LIKE_ADDRESSEE" class="input-medium" value="${param.search_LIKE_ADDRESSEE}">
+                <button type="submit" class="btn" id="search_btn">查询</button>
             </form>
         </div>
         <tags:sort/>

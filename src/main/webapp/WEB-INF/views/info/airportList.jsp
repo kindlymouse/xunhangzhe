@@ -16,10 +16,10 @@
 		<div class="span4 offset3">
 			<form class="form-search" action="#">
 				<label>名称：</label> <input type="text" name="search_LIKE_title" class="input-medium" value="${param.search_LIKE_title}">
-				<button type="submit" class="btn" id="search_btn">Search</button>
+				<button type="submit" class="btn" id="search_btn">查询</button>
 		    </form>
 	    </div>
-        <div><a class="btn" href="${ctx}/msg/create">创建机场</a></div>
+        <div class="span2"><a class="btn" href="${ctx}/airport/create">创建机场</a></div>
         <tags:sort/>
 	</div>
 

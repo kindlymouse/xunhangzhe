@@ -2,6 +2,7 @@ package cc.rainier.fss.web.brief;
 
 import cc.rainier.fss.entity.FlightPlan;
 import cc.rainier.fss.entity.Brief;
+import cc.rainier.fss.entity.User;
 import cc.rainier.fss.service.brief.BriefService;
 import cc.rainier.fss.web.BaseController;
 import com.google.common.collect.Maps;
@@ -15,6 +16,7 @@ import org.springside.modules.web.Servlets;
 
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -53,19 +55,44 @@ public class BriefController extends BaseController{
         return "brief/briefList";
     }
 
-	@RequestMapping(value = "audit", method = RequestMethod.POST)
-	public String update(@Valid @ModelAttribute("plan") FlightPlan plan, RedirectAttributes redirectAttributes) {
-		//fplService.saveFlightPlan(plan);
-        redirectAttributes.addFlashAttribute("message", "操作成功");
-        return "redirect:/plan/";
-	}
+
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public String createForm(Model model) {
+        model.addAttribute("brief", new Brief());
+        model.addAttribute("action", "create");
+        return "brief/briefForm";
+    }
+
+    @RequestMapping(value = "create", method = RequestMethod.POST)
+    public String create(@Valid Brief newBrief, RedirectAttributes redirectAttributes) {
+        User user = new User(getCurrentUserId());
+        newBrief.setSysFillUser(user);
+        newBrief.setSysFillTime(new Date());
+        briefService.saveBrief(newBrief);
+        redirectAttributes.addFlashAttribute("message", "创建任务成功");
+        return "redirect:/brief/";
+    }
+
+    @RequestMapping(value = "update/{id}", method = RequestMethod.GET)
+    public String updateForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("brief", briefService.get(id));
+        model.addAttribute("action", "update");
+        return "brief/briefForm";
+    }
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public String update(@Valid @ModelAttribute("brief") Brief brief, RedirectAttributes redirectAttributes) {
+        briefService.saveBrief(brief);
+        redirectAttributes.addFlashAttribute("message", "更新任务成功");
+        return "redirect:/brief/";
+    }
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-		//FlightPlan plan = fplService.getFlightPlan(id);
-       // fplService.deleteFlightPlan(id);
-		//redirectAttributes.addFlashAttribute("message", "删除计划[" + plan.getId() + "]成功");
-		return "redirect:/plan/";
+		Brief brief = briefService.get(id);
+       briefService.deleteBrief(id);
+		redirectAttributes.addFlashAttribute("message", "删除简报[" + brief.getId() + "]成功");
+		return "redirect:/brief/";
 	}
 
 	/**
@@ -75,7 +102,7 @@ public class BriefController extends BaseController{
 	@ModelAttribute
 	public void getFightPlan(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
 		if (id != -1) {
-			//model.addAttribute("plan", fplService.getFlightPlan(id));
+			model.addAttribute("brief", briefService.get(id));
 		}
 	}
 }
