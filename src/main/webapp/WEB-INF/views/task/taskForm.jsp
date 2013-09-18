@@ -16,7 +16,8 @@
 				<div class="controls">
 					<input type="text" id="task_title" name="title"  value="${task.title}" class="input-large required" minlength="3"/>
 				</div>
-			</div>	
+			</div>
+            <div></div>
 			<div class="control-group">
 				<label for="description" class="control-label">任务描述:</label>
 				<div class="controls">

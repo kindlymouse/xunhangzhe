@@ -10,7 +10,7 @@
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li id="nav_home"><a href="#">首页</a></li>
-                        <li id="nav_info"><a href="${ctx}/info">基础信息</a></li>
+                        <li id="nav_info"><a href="${ctx}/airport">基础信息</a></li>
                         <li id="nav_brief"><a href="${ctx}/brief">简报管理</a></li>
                         <li id="nav_plan"><a href="${ctx}/plan">计划管理</a></li>
                         <li id="nav_social"><a href="${ctx}/social">分享管理</a>

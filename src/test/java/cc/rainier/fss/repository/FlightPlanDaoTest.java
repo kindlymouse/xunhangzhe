@@ -29,7 +29,7 @@ public class FlightPlanDaoTest extends SpringTransactionalTestCase {
     @Test
     public void findBySysFillUserId() throws Exception {
         Page<FlightPlan> fpls = fplDao.findBySysFillUserId(1L, new PageRequest(0, 100, Sort.Direction.ASC, "id"));
-        assertEquals(5, fpls.getContent().size());
+        assertEquals(4, fpls.getContent().size());
         assertEquals(new Long(1), fpls.getContent().get(0).getId());
 
         fpls = fplDao.findBySysFillUserId(99999L, new PageRequest(0, 100, Sort.Direction.ASC, "id"));
