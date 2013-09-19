@@ -27,8 +27,6 @@
                         <c:forEach items="${airports}" var="ap">
                             <option value="${ap.id}" <c:if test="${ap.id == brief.airport.id}">selected="selected"</c:if>>${ap.name}</option>
                         </c:forEach>
-                        <option value="11">成都双流机场x</option>
-                        <option value="21">绵阳机场x</option>
                     </select>
                 </div>
             </div>
