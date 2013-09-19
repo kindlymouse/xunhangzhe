@@ -23,6 +23,16 @@
 
 
 <sitemesh:head/>
+    <style>
+        #content{
+            width:1170px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        table th{
+            background-color:rgb(223, 240, 216);
+        }
+    </style>
 </head>
 
 <body>

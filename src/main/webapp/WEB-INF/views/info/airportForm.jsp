@@ -27,6 +27,7 @@
                 input.colspan1{
                     width:94%;
                 }
+
             </style>
             <table class="table table-bordered" style="margin-left:auto;margin-right:auto;width:960px;"><tbody>
             <tr class="success">

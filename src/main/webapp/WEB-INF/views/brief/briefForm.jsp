@@ -20,18 +20,13 @@
 			<div class="control-group">
 				<label for="brief_title" class="control-label">标题:</label>
 				<div class="controls">
-					<input type="text" id="brief_title" name="title"  value="${brief.title}" class="input-large required" minlength="3"/>
+					<input type="text" id="brief_title" name="title"  value="${brief.title}" class="input-large required span8" minlength="3"/>
 				</div>
 			</div>	
 			<div class="control-group">
 				<label for="brief_content" class="control-label">内容:</label>
 				<div class="controls">
-					<%--<textarea id="brief_content" name="content" class="input-large">${brief.content}</textarea>--%>
-                   <div id="brief_contentxx"></div>
-                    <script type="text/javascript" charset="utf-8">
-                        var editor = new baidu.editor.ui.Editor();
-                        editor.render('brief_contentxx');  //editor为编辑器容器的id
-                    </script>
+					<textarea id="brief_content" name="content" class="span8" rows="10">${brief.content}</textarea>
 				</div>
 			</div>	
 			<div class="form-actions">

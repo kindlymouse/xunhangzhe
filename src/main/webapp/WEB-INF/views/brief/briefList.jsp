@@ -14,7 +14,7 @@
 		<div id="message" class="alert alert-success"><button data-dismiss="alert" class="close">×</button>${message}</div>
 	</c:if>
 	<div class="row">
-		<div class="span4 offset3">
+		<div class="span4">
 			<form class="form-search" action="#">
 				<label>标题：</label> <input type="text" name="search_LIKE_title" class="input-medium" value="${param.search_LIKE_title}">
 				<button type="submit" class="btn" id="search_btn">查询</button>
