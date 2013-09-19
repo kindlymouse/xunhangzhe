@@ -21,6 +21,7 @@ public class Brief extends IdEntity {
     private String content;
     private User sysFillUser;
     private Date sysFillTime;
+    private Airport airport;
 
     public String getTitle() {
         return title;
@@ -59,4 +60,13 @@ public class Brief extends IdEntity {
         this.sysFillTime = sysFillTime;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "airport_id")
+    public Airport getAirport() {
+        return airport;
+    }
+
+    public void setAirport(Airport airport) {
+        this.airport = airport;
+    }
 }

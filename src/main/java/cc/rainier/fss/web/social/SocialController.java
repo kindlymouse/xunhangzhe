@@ -1,10 +1,8 @@
 package cc.rainier.fss.web.social;
 
-import cc.rainier.fss.entity.Brief;
-import cc.rainier.fss.entity.User;
-import cc.rainier.fss.service.brief.BriefService;
+import cc.rainier.fss.entity.Attach;
+import cc.rainier.fss.service.social.AttachService;
 import cc.rainier.fss.web.BaseController;
-import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -15,7 +13,6 @@ import org.springside.modules.web.Servlets;
 
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -27,71 +24,59 @@ import java.util.Map;
 @RequestMapping(value = "/social")
 public class SocialController extends BaseController{
 
+    private static final String WF_PAGE_SIZE = "15";         //瀑布流单页图片数量。
+
 	@Autowired
-	private BriefService briefService;
-    private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
-    static {
-        sortTypes.put("auto", "自动");
-        sortTypes.put("title", "标题");
-    }
+	private AttachService attachService;
 
 	@RequestMapping(method = RequestMethod.GET)
     public String list(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                       @RequestParam(value = "page.size", defaultValue = PAGE_SIZE) int pageSize,
+                       @RequestParam(value = "page.size", defaultValue = WF_PAGE_SIZE) int pageSize,
                        @RequestParam(value = "sortType", defaultValue = "auto") String sortType, Model model,
                        ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
 //        Long userId = getCurrentUserId();
-
-        Page<Brief> briefs = briefService.getPageBrief(searchParams, pageNumber, pageSize, sortType);
-
-        model.addAttribute("briefs", briefs);
+        Page<Attach> attaches = attachService.getUserAttach(null, searchParams, pageNumber, pageSize, sortType);
+        model.addAttribute("attaches", attaches);
         model.addAttribute("sortType", sortType);
-        model.addAttribute("sortTypes", sortTypes);
         // 将搜索条件编码成字符串，用于排序，分页的URL
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
-
         return "social/socialList";
     }
-
-
-    @RequestMapping(value = "create", method = RequestMethod.GET)
-    public String createForm(Model model) {
-        model.addAttribute("brief", new Brief());
-        model.addAttribute("action", "create");
-        return "brief/briefForm";
+    @RequestMapping(value="datapage.htm", method = RequestMethod.GET)
+    public String page(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
+                       @RequestParam(value = "page.size", defaultValue = WF_PAGE_SIZE) int pageSize,
+                       @RequestParam(value = "sortType", defaultValue = "auto") String sortType, Model model,
+                       ServletRequest request) {
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+//        Long userId = getCurrentUserId();
+        Page<Attach> attaches = attachService.getUserAttach(null, searchParams, pageNumber, pageSize, sortType);
+        model.addAttribute("attaches", attaches);
+        model.addAttribute("sortType", sortType);
+        // 将搜索条件编码成字符串，用于排序，分页的URL
+        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+        return "social/datapage";
     }
-
-    @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String create(@Valid Brief newBrief, RedirectAttributes redirectAttributes) {
-        User user = new User(getCurrentUserId());
-        newBrief.setSysFillUser(user);
-        newBrief.setSysFillTime(new Date());
-        briefService.saveBrief(newBrief);
-        redirectAttributes.addFlashAttribute("message", "创建任务成功");
-        return "redirect:/brief/";
-    }
-
     @RequestMapping(value = "update/{id}", method = RequestMethod.GET)
     public String updateForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("brief", briefService.get(id));
+        model.addAttribute("attach", attachService.getAttach(id));
         model.addAttribute("action", "update");
-        return "brief/briefForm";
+        return "social/attachForm";
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
-    public String update(@Valid @ModelAttribute("brief") Brief brief, RedirectAttributes redirectAttributes) {
-        briefService.saveBrief(brief);
-        redirectAttributes.addFlashAttribute("message", "更新任务成功");
-        return "redirect:/brief/";
+    public String update(@Valid @ModelAttribute("attach") Attach attach, RedirectAttributes redirectAttributes) {
+        attachService.saveAttach(attach);
+        redirectAttributes.addFlashAttribute("message", "更新信息成功");
+        return "redirect:/social/";
     }
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
-		Brief brief = briefService.get(id);
-       briefService.deleteBrief(id);
-		redirectAttributes.addFlashAttribute("message", "删除简报[" + brief.getId() + "]成功");
-		return "redirect:/brief/";
+		Attach attach = attachService.getAttach(id);
+       attachService.deleteAttach(id);
+		redirectAttributes.addFlashAttribute("message", "删除信息[" + attach.getId() + "]成功");
+		return "redirect:/social/";
 	}
 
 	/**
@@ -101,7 +86,7 @@ public class SocialController extends BaseController{
 	@ModelAttribute
 	public void getFightPlan(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
 		if (id != -1) {
-			model.addAttribute("brief", briefService.get(id));
+			model.addAttribute("attach", attachService.getAttach(id));
 		}
 	}
 }

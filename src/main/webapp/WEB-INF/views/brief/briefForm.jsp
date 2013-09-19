@@ -7,9 +7,6 @@
     <script type="text/javascript" src="${ctx}/static/ueditor/umeditor.config.js"></script>
     <script type="text/javascript" src="${ctx}/static/ueditor/umeditor.js"></script>
     <link type="text/css" href="${ctx}/static/ueditor/themes/default/css/umeditor.css"/>
-
-
-
 </head>
 
 <body>
@@ -22,8 +19,20 @@
 				<div class="controls">
 					<input type="text" id="brief_title" name="title"  value="${brief.title}" class="input-large required span8" minlength="3"/>
 				</div>
-			</div>	
-			<div class="control-group">
+			</div>
+            <div class="control-group">
+                <label for="brief_title" class="control-label">机场:</label>
+                <div class="controls">
+                    <select class="" name="airport.id">
+                        <c:forEach items="${airports}" var="ap">
+                            <option value="${ap.id}" <c:if test="${ap.id == brief.airport.id}">selected="selected"</c:if>>${ap.name}</option>
+                        </c:forEach>
+                        <option value="11">成都双流机场x</option>
+                        <option value="21">绵阳机场x</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
 				<label for="brief_content" class="control-label">内容:</label>
 				<div class="controls">
 					<textarea id="brief_content" name="content" class="span8" rows="10">${brief.content}</textarea>

@@ -10,7 +10,7 @@ import org.apache.shiro.SecurityUtils;
  * Time: 下午4:14
  */
 public abstract class BaseController {
-    protected static final String PAGE_SIZE = "5";
+    protected static final String PAGE_SIZE = "10";
     /**
      * 取出Shiro中的当前用户Id.
      */

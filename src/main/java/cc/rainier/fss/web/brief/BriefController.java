@@ -3,6 +3,7 @@ package cc.rainier.fss.web.brief;
 import cc.rainier.fss.entity.FlightPlan;
 import cc.rainier.fss.entity.Brief;
 import cc.rainier.fss.entity.User;
+import cc.rainier.fss.service.airport.AirportService;
 import cc.rainier.fss.service.brief.BriefService;
 import cc.rainier.fss.web.BaseController;
 import com.google.common.collect.Maps;
@@ -30,6 +31,8 @@ public class BriefController extends BaseController{
 
 	@Autowired
 	private BriefService briefService;
+    @Autowired
+    private AirportService airportService;
     private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
     static {
         sortTypes.put("auto", "自动");
@@ -60,6 +63,7 @@ public class BriefController extends BaseController{
     public String createForm(Model model) {
         model.addAttribute("brief", new Brief());
         model.addAttribute("action", "create");
+        model.addAttribute("airports",airportService.getAllAirport());
         return "brief/briefForm";
     }
 
@@ -77,13 +81,15 @@ public class BriefController extends BaseController{
     public String updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("brief", briefService.get(id));
         model.addAttribute("action", "update");
+        model.addAttribute("airports",airportService.getAllAirport());
         return "brief/briefForm";
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public String update(@Valid @ModelAttribute("brief") Brief brief, RedirectAttributes redirectAttributes) {
+        brief.setAirport(airportService.getAirport(brief.getAirport().getId()));
         briefService.saveBrief(brief);
-        redirectAttributes.addFlashAttribute("message", "更新任务成功");
+        redirectAttributes.addFlashAttribute("message", "更新简报成功");
         return "redirect:/brief/";
     }
 
@@ -100,9 +106,13 @@ public class BriefController extends BaseController{
 	 * 因为仅update()方法的form中有id属性，因此仅在update时实际执行.
 	 */
 	@ModelAttribute
-	public void getFightPlan(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
+	public void getBrief(@RequestParam(value = "id", defaultValue = "-1") Long id, @RequestParam(value = "airport.id", defaultValue = "-1") Long aid, Model model) {
 		if (id != -1) {
-			model.addAttribute("brief", briefService.get(id));
+            Brief b = briefService.get(id);
+            if(b.getAirport().getId() != aid){
+                b.setAirport(airportService.getAirport(aid));
+            }
+            model.addAttribute("brief", b);
 		}
 	}
 }

@@ -40,6 +40,8 @@
     /* more */
     #more{display:block;margin:10px auto 20px;}
 
+    .loading{margin-left:auto;margin-right:auto;}
+
     /* to_top */
     .to_top a,.to_top a:hover{background:url("${ctx}/static/social/images/gotop.png") no-repeat}
     .to_top a{
@@ -105,9 +107,10 @@
                 alert('error');
             }, //当出错的时候，比如404页面的时候执行的函数
             loading: {
-                img: "${ctx}/static/social/images/masonry_loading_1.gif",
+                <%--img: "${ctx}/static/social/images/masonry_loading_1.gif",--%>
                 msgText: "",
-                finishedMsg: '没有新数据了...'
+                finishedMsg: '没有新数据了...',
+                selector: '.loading' // 显示loading信息的div
             }
         }, function(newElements) {
             //程序执行完的回调函数
@@ -139,345 +142,29 @@
     </div>
 </div><!--item end-->
 
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/js/images/cj/2012-03-14/420.html"><img width="210" height="164" alt="js图片特效制作js焦点图上下滚动slider切换效果" src="${ctx}/static/social/images/pic/02.jpg" /></a>
-        </div>
-        <div class="title"><span>js图片特效制作js焦点图上下滚动slider切换效果</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/js/menu/sx/2012-03-25/502.html"><img width="210" height="287" alt="js树形导航菜单制作垂直js导航条特效" src="${ctx}/static/social/images/pic/03.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/js/menu/sx/2012-03-25/502.html" class="img_album_btn">加入专辑</a>
+<c:forEach items="${attaches.content}" var="attach"  varStatus="status">
+    <div class="item masonry_brick">
+        <div class="item_t">
+            <div class="img">
+                <a href="#"><img width="210" height="164" alt="${attach.description}" src="${ctx}/static/social/images/pic/02.jpg" /></a>
             </div>
+            <div class="title"><span>${attach.description}</span></div>
         </div>
-        <div class="title"><span>js树形导航菜单制作垂直js导航条特效</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-09-06/753.html"><img width="210" height="285" alt="flash图片导航条自动切换轮播焦点图" src="${ctx}/static/social/images/pic/04.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-09-06/753.html" class="img_album_btn">加入专辑</a>
+        <div class="item_b clearfix">
+            <div class="items_author fl">
+                    发布by ${attach.user.name}
             </div>
+            <div class="items_createtime fr"><em class="bold"><fmt:formatDate value="${attach.ctime}" pattern="yyyy-MM-dd  HH:mm"/></em></div>
         </div>
-        <div class="title"><span>flash图片导航条自动切换轮播焦点图</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-06-04/640.html"><img width="210" height="323" alt="flash图片特效左右按钮控制图片折叠切换效果" src="${ctx}/static/social/images/pic/05.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-06-04/640.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash图片特效左右按钮控制图片折叠切换效果</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            Alex Zhang
-        </div>
-        <div class="items_createtime fr">2012-12-21 13:41</div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-05-08/596.html"><img width="210" height="315" alt="flash焦点图片带内容与按钮的3D动画图片特效" src="${ctx}/static/social/images/pic/06.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-05-08/596.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash焦点图片带内容与按钮的3D动画图片特效</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-03-11/388.html"><img width="210" height="282" alt="flash特效制作flash图片滚动带按钮控制左右图片滚动" src="${ctx}/static/social/images/pic/07.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-03-11/388.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash特效制作flash图片滚动带按钮控制左右图片滚动</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-03-03/378.html"><img width="210" height="266" alt="flash焦点图切换特效制作各大网站的焦点图片轮播" src="${ctx}/static/social/images/pic/08.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-03-03/378.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash焦点图切换特效制作各大网站的焦点图片轮播</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-03-03/374.html"><img width="210" height="254" alt="flash焦点图切换动画图片和标题文字配合显示含flash源码下载" src="${ctx}/static/social/images/pic/09.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-03-03/374.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash焦点图切换动画图片和标题文字配合显示含flash源码下载</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/images/2012-03-03/370.html"><img width="210" height="276" alt="flash图片切换左右滚动带序列索引按钮控制flash动画图片特效" src="${ctx}/static/social/images/pic/10.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/images/2012-03-03/370.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash图片切换左右滚动带序列索引按钮控制flash动画图片特效</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/flash/letter/2012-03-04/386.html"><img width="210" height="131" alt="flash文字特效制作数字类似文字打印效果,属于flash动画文字特效一种" src="${ctx}/static/social/images/pic/11.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/flash/letter/2012-03-04/386.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>flash文字特效制作数字类似文字打印效果,属于flash动画文字特效一种</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/css3/layout/2011-10-13/215.html"><img width="210" height="131" alt="div+css制作在IE6 上用absolute模拟fixed IE6浏览器定位层框不闪动" src="${ctx}/static/social/images/pic/12.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/css3/layout/2011-10-13/215.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>div+css制作在IE6 上用absolute模拟fixed IE6浏览器定位层框不闪动</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/css3/layout/2011-02-21/36.html"><img width="210" height="287" alt="CSS如何定位工程" src="${ctx}/static/social/images/pic/13.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/css3/layout/2011-02-21/36.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>CSS如何定位工程</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/css3/menu/2011-09-21/197.html"><img width="210" height="323" alt="用div+css3美化制作动画导航特效鼠标滑过动画显示" src="${ctx}/static/social/images/pic/14.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/css3/menu/2011-09-21/197.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>用div+css3美化制作动画导航特效鼠标滑过动画显示</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/css3/menu/2011-02-20/22.html"><img width="210" height="304" alt="用div+css制作一个CSS3的简约图标导航菜单" src="${ctx}/static/social/images/pic/15.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/css3/menu/2011-02-20/22.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>用div+css制作一个CSS3的简约图标导航菜单</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/html5/tx/2011-08-13/120.html"><img width="210" height="315" alt="jquery 图片特效用CSS3和HTML5制作仿动画头条报纸缩小到放大翻转图片展示" src="${ctx}/static/social/images/pic/16.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/html5/tx/2011-08-13/120.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>jquery 图片特效用CSS3和HTML5制作仿动画头条报纸缩小到放大翻转图片展示</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
-
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/html5/tx/2011-02-21/42.html"><img width="210" height="314" alt="jquery 幻灯片切换应用一个HTML5的幻灯片" src="${ctx}/static/social/images/pic/17.jpg" /></a>
-           
-            <div class="btns">
-                <a href="http://www.jsfoot.com/html5/tx/2011-02-21/42.html" class="img_album_btn">加入专辑</a>
-            </div>
-        </div>
-        <div class="title"><span>jquery 幻灯片切换应用一个HTML5的幻灯片</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
+    </div><!--item end-->
+</c:forEach>
 
 </div>
-
-
-<div id="more"><a href="${ctx}/static/social/page/2.html"></a></div>
-
-<div id="page" class="page" style="display:none;">
-    <div class="page_num">
-        <span class="unprev"></span>
-        <span class="current">1</span>
-        <a href="http://www.jsfoot.com">&nbsp;2&nbsp;</a>
-        <a href="http://www.jsfoot.com">&nbsp;3&nbsp;</a>
-        <a href="http://www.jsfoot.com">&nbsp;4&nbsp;</a>
-        <a href="http://www.jsfoot.com">&nbsp;5&nbsp;</a>
-        <span class="etc"></span>
-        <a href="http://www.jsfoot.com">12</a>
-        <a href="http://www.jsfoot.com" class="next"></a>
-    </div>
-</div>
-
+    <div class="loading" style="text-align: center;"></div>
+<div id="more"><a href="${ctx}/social/datapage.htm?page=2"></a></div>
 </div>
 
 <div style="display:none;" id="gotopbtn" class="to_top"><a title="返回顶部" href="javascript:void(0);"></a></div>
-
-
 <script type="text/javascript">
     $(function(){
 

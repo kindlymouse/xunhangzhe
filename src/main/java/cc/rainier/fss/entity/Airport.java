@@ -68,11 +68,11 @@ public class Airport extends IdEntity {
 
 
     public String getType() {
-        return "A";
+        return this.type;
     }
 
     public void setType(String type) {
-        this.type = "A";
+        this.type = type;
     }
 
     public String getCode() {
