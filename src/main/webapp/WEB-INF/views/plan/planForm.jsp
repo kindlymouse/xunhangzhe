@@ -12,13 +12,6 @@
     <style>
         .c_1{width:27.7px;text-align: center;background-image: url("${ctx}/static/images/b_char.gif");}
         .c_1:last-child{background:none;}
-        .c_2{width:39px;}
-        .c_3{width:67px;}
-        .c_4{width:95px;}
-        .c_5{width:123px;}
-        .c_6{width:151px;}
-        .c_7{width:179px;}
-        .c_8{width:207px;}
         .c_12{width:319px;display:inline-block;}
 
         table{margin-left:auto;margin-right:auto;}
@@ -32,7 +25,6 @@
             display:inline-block;
         }
         .tbl-plan span.s_char span{
-            /*letter-spacing: 17px;*/
             display: inline-block;
             line-height:27px;
         }
