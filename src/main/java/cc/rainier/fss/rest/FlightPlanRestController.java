@@ -35,7 +35,7 @@ import java.util.Map;
 public class FlightPlanRestController extends BaseJsonpController{
 
     private static Logger logger = LoggerFactory.getLogger(FlightPlanRestController.class);
-    private static final int PAGE_SIZE = 7;
+    private static final int PAGE_SIZE = 100;
 
     @Autowired
     private FPLService fplService;
@@ -52,17 +52,20 @@ public class FlightPlanRestController extends BaseJsonpController{
      * @param pageNum
      * @return
      */
-    @RequestMapping(value = "/user/{user_id}/page/{pageNum}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/user/{user_id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<String> queryFPL(@PathVariable("user_id") Long userId,@PathVariable("pageNum") Long pageNum,@RequestParam("callback") String callback) {
+    public ResponseEntity<String> queryFPL(@PathVariable("user_id") Long userId,@RequestParam("page") String pageNum,@RequestParam("limit") String pageLimit,@RequestParam("callback") String callback) {
 
 
-        Page<FlightPlan> fplPage = fplService.getUserFPL(userId,null,pageNum.intValue(),PAGE_SIZE,"auto");
+        Page<FlightPlan> fplPage = fplService.getUserFPL(userId,null,Integer.parseInt(pageNum),Integer.parseInt(pageLimit),"auto");
         if (fplPage == null || fplPage.getSize()==0) {
             logger.warn("FlightPlan with user_id {} not found", userId);
             return null;
         }
 
+        if(fplPage.getContent().size()==0){
+            return new ResponseEntity(getReturnByJson(callback,"{'success' : true,'total' : 0,'data' : []}"),HttpStatus.OK);
+        }
         return new ResponseEntity(getReturnByJson(callback,toJson(fplPage.getContent())),HttpStatus.OK);
     }
 
@@ -71,15 +74,15 @@ public class FlightPlanRestController extends BaseJsonpController{
      * @param id
      * @return
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
+    public ResponseEntity<?> get(@PathVariable("id") Long id,@RequestParam("callback") String callback) {
         FlightPlan fpl = fplService.getFlightPlan(id);
         if (fpl == null) {
             logger.warn("Flight Plan with id {} not found", id);
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(fpl, HttpStatus.OK);
+        return new ResponseEntity(getReturnByJson(callback,toJson(fpl)), HttpStatus.OK);
     }
 
     /**
@@ -114,6 +117,21 @@ public class FlightPlanRestController extends BaseJsonpController{
         fpl.setAltnAerodrome((String) paramsMap.get("altnAerodrome"));
         fpl.setAltn2rdAerodrome((String) paramsMap.get("altn2rdAerodrome"));
         fpl.setOtherInformation((String) paramsMap.get("otherInformation"));
+
+        fpl.setEndurance((String) paramsMap.get("endurance"));
+        fpl.setPersonsOnBoard((Integer) paramsMap.get("personsOnBoard"));
+        fpl.setEmergencyRadio(((paramsMap.get("emergency_Radio_U")!=null)?"U":"")+((paramsMap.get("emergency_Radio_V")!=null)?"V":"")+((paramsMap.get("emergency_Radio_E")!=null)?"E":""));
+        fpl.setSurvivalEquipment(((paramsMap.get("survivalEquipment_P")!=null)?"P":"")+((paramsMap.get("survivalEquipment_D")!=null)?"D":"")+((paramsMap.get("survivalEquipment_M")!=null)?"M":"")+((paramsMap.get("survivalEquipment_J")!=null)?"J":""));
+        fpl.setSurvivalJackets(((paramsMap.get("survivalJackets_L")!=null)?"L":"")+((paramsMap.get("survivalJackets_F")!=null)?"F":"")+((paramsMap.get("survivalJackets_U")!=null)?"U":"")+((paramsMap.get("survivalJackets_V")!=null)?"V":""));
+        fpl.setDingiesNumber((Integer) paramsMap.get("dingiesNumber"));
+        fpl.setDingiesCapacity((Integer) paramsMap.get("dingiesCapacity"));
+        fpl.setDingiesCover(((paramsMap.get("dingiesCover")!=null)?"C":""));
+        fpl.setDingiesColour((String) paramsMap.get("dingiesColour"));
+        fpl.setAircraftColourAndMarkings((String) paramsMap.get("aircraftColourAndMarkings"));
+        fpl.setRemarks((String) paramsMap.get("remarks"));
+        fpl.setPilotInCommand((String) paramsMap.get("pilotInCommand"));
+        fpl.setFiledBy((String) paramsMap.get("filedBy"));
+        fpl.setTelephone((String) paramsMap.get("telephone"));
 
         fpl.setSysFillUser(accountService.findUserByLoginName(userId));
         fpl.setSysFillTime(new Date());

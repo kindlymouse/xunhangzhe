@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><sitemesh:title/> - 巡航者 - 综合飞行服务应用</title>
+<title><sitemesh:title/> - 寻航者 - 综合飞行信息服务系统</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />

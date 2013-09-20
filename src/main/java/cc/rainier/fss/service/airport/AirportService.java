@@ -67,6 +67,7 @@ public class AirportService {
 	 * 创建动态查询条件组合.
 	 */
 	private Specification<Airport> buildSpecification(Long userId, Map<String, Object> searchParams) {
+        if ( searchParams == null ) return null;
 		Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
 		if(userId!=null && userId!=0){
             filters.put("sysFillUser.id", new SearchFilter("sysFillUser.id", Operator.EQ, userId));
