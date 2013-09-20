@@ -8,39 +8,39 @@
 <head>
 	<title>计划审核</title>
     <style>
-        #pm{
-            line-height:30px; font-size:18px;
+        .c_1{width:11px;}
+        .c_2{width:39px;}
+        .c_3{width:67px;}
+        .c_4{width:95px;}
+        .c_5{width:123px;}
+        .c_6{width:151px;}
+        .c_7{width:179px;}
+        .c_8{width:207px;}
+        .c_12{width:319px;display:inline-block;}
+
+        table{margin-left:auto;margin-right:auto;}
+        .tbl-plan{width:980px;font-size:18px;color:#555;}
+        .tbl-plan table{width:98%;margin-left:2%;}
+        .tbl-plan label{margin-bottom:0px;font-weight:bold;}
+        .tbl-plan .tr_cap td{vertical-align: middle;height:30px;}
+        .tbl-plan .tr_val td{vertical-align: middle; height:32px;}
+        .tbl-plan .s_char{
+            border:1px solid #999;
+            padding:5px 7px 1px 7px;
+            background-image: url("${ctx}/static/images/b_char.gif");
+            background-repeat: repeat-x;
         }
-        #pm label{
-            line-height:25px;
-            font-weight:bold;
-        }
-        #pm .s_char{
-            border:1px solid #000;
-            height:30px;
-            padding-left:8px;
-            padding-right:8px;
+        .tbl-plan span.s_char span{
+            letter-spacing: 17px;
             display: inline-block;
+            line-height:27px;
         }
 
-        #pm span.s_char span{
-            font-size:25px;
-            letter-spacing: 3px;
-            display: inline-block;
-        }
 
-        #pm .c_1{width:20px;}
-        #pm .c_2{width:40px;}
-        #pm .c_3{width:60px;}
-        #pm .c_4{width:80px;}
-        #pm .c_5{width:100px;}
-        #pm .c_6{width:120px;}
-        #pm .c_7{width:140px;}
-        #pm .c_8{width:160px;}
-        #pm .mt10{margin-top:10px;}
-        #pm .ml10{margin-left:10px;}
-        #pm .txt_r{text-align: right;}
+        .tbl-audit{width:980px;margin-top:10px;}
 
+        .bordered{border:1px solid #999;}
+        .bordered-bottom{border-bottom:1px solid #ddd;}
     </style>
 </head>
 
@@ -49,380 +49,386 @@
     <input type="hidden" name="id" value="${id}"/>
     <fieldset>
     <legend><small>计划审核</small></legend>
-    <div id="pm" class="container" style="border:1px solid #000;width:980px;height:1650px;">
-    <!-- plan header -->
-    <div class="row-fluid">
-        <div class="span12 text-center" style="border:1px solid #000;">
-            <h3 style="margin-top:0px;margin-bottom:0px;">FIGHT PLAN</h3>
-        </div>
-    </div>
-    <!-- plan group 1 -->
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="row-fluid mt10" style="">
-                <div class="span2">
-                    <div class="span2"></div>
-                    <div class="span10">
-                        <label class="plan_til_label">PRIORITY</label>
-                        <div class="row-fluid">
-                            << ≡ FF →
-                        </div>
-                    </div>
-                </div>
-                <div class="span10">
-                    <div class="row-fluid">
-                        <label class="plan_til_label">ADDRESSEE(S)</label>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span12" style="height:90px;padding-left:5px;border-top:1px solid #000;border-bottom:1px solid #000;border-left:1px solid #000;">
-                            <div style="float:left;">${plan.addressee}
-                            This is a test.
-                            This is a test.</div>
+    <table class="tbl-plan bordered">
+        <tbody><tr>
+            <td class="bordered-bottom text-center"><h3 style="margin-top:0px;margin-bottom:0px;">FIGHT PLAN</h3></td></tr></tbody>
+        <tbody>
+            <tr><td>
+                <table>
+                    <tr class="tr_cap">
+                        <td width="15%"><label>PRIORITY</label></td>
+                        <td><label>ADDRESSEE(S)</label></td></tr>
+                    <tr class="tr_val">
+                        <td style="vertical-align: top;"><< ≡ FF →</td>
+                        <td class="bordered" style="height:90px; vertical-align: top;">
+                            <div style="float:left;">${plan.addressee}<br/>${plan.addressee}<br/>${plan.addressee}<br/>${plan.addressee}</div>
                             <div style="position:relative;float:right;top:60px;width:60px;display: inline;"><< ≡</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="clear:both;"></div>
-            <div class="row-fluid mt10" style="padding-top:10px;height:80px;">
-                <div class="span1"></div>
-                <div class="span2">
-                    <label class="plan_til_label">FILING TIME</label>
-                    <div>
-                        <span class="s_char"><span class="c_5">${plan.filingTime}</span></span>
-                    </div>
-                </div>
-                <div class="span1">
-                    <div>&nbsp;</div>
-                    <div style="text-align: center;">→</div>
-                </div>
-                <div class="span3">
-                    <label class="plan_til_label">ORIGINATOR</label>
-                    <div>
-                        <span class="s_char"><span class="c_8">${plan.originator}</span></span>
-                    </div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div><< ≡</div>
-                </div>
-                <div class="span4"></div>
-            </div>
-            <div class="row-fluid ">
-                <h5 style="margin-left:15px;">SPECIFIC IDENTIFICATION OF ADDRESSEE(S) AND/OR ORIGINATOR</h5>
-            </div>
-        </div>
-    </div>
-    <div style="height:3px;background-color:#000;"></div>
-    <!-- plan group 2 -->
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="row-fluid mt10">
-                <div class="span3">
-                    <label class="ml10">3 MESSAGE TYPE</label>
-                    <div class="ml10">
-                        <<≡(FPL
-                    </div>
-                </div>
-                <div class="span3">
-                    <label  class="plan_til_label">7 AIRCRAFT IDENTIFICATION</label>
-                    <div>
-                        - <span class="s_char"><span class="c_7">${plan.aircraftIdentification}</span>
-                    </div>
-                </div>
-                <div class="span3">
-                    <label  class="plan_til_label">8 FLIGHT RULES</label>
-                    <div>
-                        - <span class="s_char"><span class="c_1">${plan.flightRules}</span>
-                    </div>
-                </div>
-                <div class="span2">
-                    <label  class="plan_til_label">TYPE OF FLIGHT</label>
-                    <div><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></div>
-                </div>
-                <div class="span1">
-                    <label  class="plan_til_label"></label>
-                    <div><<≡</div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span2">
-                    <label  class="ml10">9 NUMBER</label>
-                    <div  class="ml10">
-                        - <span class="s_char"><span class="c_2">${plan.flightNumber}</span></span>
-                    </div>
-                </div>
-                <div class="span3">
-                    <label  class="plan_til_label">TYPE OF AIRCARAFT</label>
-                    <div>
-                        <span class="s_char"><span class="c_4">${plan.typeOfAircraft}</span></span>
-                    </div>
-                </div>
-                <div class="span3">
-                    <label>WAKE TURBULENCE CAT</label>
-                    <div>
-                        / <span class="s_char"><span class="c_1">${plan.wakeTurbulenceCat}</span></span>
-                    </div>
-                </div>
-                <div class="span3">
-                    <label>10 EQUIPMENT</label>
-                    <div>
-                        - <span class="s_char"><span class="c_4">${plan.equipment}</span></span>
-                    </div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div><<≡</div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span4">
-                    <label  class="ml10">13 DEPARTURE AERODROME</label>
-                    <div  class="ml10">
-                        - <span class="s_char"><span class="c_4">${plan.departureAerodrome}</span></span>
-                    </div>
-                </div>
-                <div class="span3">
-                    <label>TIME</label>
-                    <div><span class="s_char"><span class="c_4">${plan.departureTime}</span></span></div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div><<≡</div>
-                </div>
-                <div class="span4"></div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span2">
-                    <label  class="ml10">15 CRUISING SPEED</label>
-                    <div  class="ml10">- <span class="s_char"><span class="c_5">${plan.cruisingSpeed}</span></span></div>
-                </div>
-                <div class="span2">
-                    <label><br/>LEVEL</label>
-                    <div><span class="s_char"><span class="c_5">${plan.flightLevel}</span></span></div>
-                </div>
-                <div class="span8">
-                    <label><br/>ROUTE</label>
-                    <div style="height:90px; border:1px solid #000;border-right:0px;">
-                       ${plan.route}
-                        <div style="position:relative;float:right;top:60px;width:60px;"><< ≡</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span3">
-                    <label  class="ml10">16 DESTINATION <br/>AERODROME</label>
-                    <div  class="ml10">- <span class="s_char"> <span class="c_4">${plan.destinationAerodrome}</span></span></div>
-                </div>
-                <div class="span2">
-                    <label>TOTAL EET<br/>HR. MIN</label>
-                    <div><span class="s_char"><span class="c_4"> ${plan.totalEet}</span></span></div>
-                </div>
-                <div class="span3">
-                    <label><br/>ALTN AERODROME</label>
-                    <div>-> <span class="s_char"> <span class="c_4">${plan.altnAerodrome}</span></span></div>
-                </div>
-                <div class="span3">
-                    <label><br/>2ND ALTN AERODROME</label>
-                    <div>-> <span class="s_char"><span class="c_4">${plan.altn2rdAerodrome}</span></span></div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;<br/>&nbsp;</label>
-                    <div><<≡</div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <label  class="ml10">18 OTHER INFORMATION</label>
-                <div  class="ml10" style="height:90px;border:1px solid #000;">
-                   ${plan.otherInformation}
-                    <div style="position:relative;float:right;top:60px;width:90px;">) <<≡</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div style="height:5px;background-color:#000;"></div>
-    <!-- plan group 3 -->
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="row-fluid mt10" style="text-align: center">SUPPLEMENTARY INFORMATION (NOT TO BE TRANSMITTED IN FPL MESSAGES)</div>
-            <div class="row-fluid mt10">
-                <div class="span6">
-                    <label class="ml10">19 ENDURANCE</label>
-                    <div class="row-fluid">
-                        <div class="span6">
-                            <label class="ml10">HR MIN</label>
-                            <div class="ml10">- E / <span class="s_char"><span class="c_4">${plan.endurance}</span></span></div>
-                        </div>
-                        <div class="span6">
-                            <label>PERSONS ON BOARD</label>
-                            <div>-> P / <span class="s_char"><span class="c_3">${plan.personsOnBoard}</span></span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="span6">
-                    <label>EMERGENCY RADIO</label>
-                    <div class="span4">
-                        <label>UHF</label>
-                        <div>-> R / <span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.emergencyRadio,'U')}">U</c:if> </span></span></div>
-                    </div>
-                    <div class="span4">
-                        <label>VHF</label>
-                        <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.emergencyRadio,'V')}">V </c:if></span></span></div>
-                    </div>
-                    <div class="span3">
-                        <label>ELT</label>
-                        <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.emergencyRadio,'E')}">E </c:if></span></span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span2">
-                    <label class="ml10">SURIVIVAL EQUIPMENT</label>
-                    <div class="ml10">-> <span class="s_char">S</span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>POLAR</label>
-                    <div>/ <span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'P')}">P </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>DESERT</label>
-                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'D')}">D </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>MARITIME</label>
-                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'M')}">M </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>JUNGLE</label>
-                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalEquipment,'J')}">J </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>JACKETS</label>
-                    <div><span class="s_char"><span class="c_1">J</span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>LIGHT</label>
-                    <div>/ <span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'L')}">L </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>FLUORES</label>
-                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'F')}">F </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>UHF</label>
-                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'U')}">U </c:if></span></span></div>
-                </div>
-                <div class="span1">
-                    <label><br/>VHF</label>
-                    <div><span class="s_char"><span class="c_1"><c:if test="${fn:contains(plan.survivalJackets,'V')}">V</c:if></span></span></div>
-                </div>
-                <div class="span1"></div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span2">
-                    <label class="ml10">NUMBER</label>
-                    <div class="ml10">
-                        -> <span class="s_char"><span class="c_1">D</span></span>
-                        / <span class="s_char"><span class="c_2"><fmt:formatNumber value="${plan.dingiesNumber}" pattern="##"/></span></span>
-                    </div>
-                </div>
-                <div class="span2">
-                    <label>CAPACITY</label>
-                    <div> -> <span class="s_char"><span class="c_3">${plan.dingiesCapacity}</span></span></div>
-                </div>
-                <div class="span1">
-                    <label>COVER</label>
-                    <div> -> <span class="s_char"><span class="c_1">${plan.dingiesCover}</span></span></div>
-                </div>
-                <div class="span3">
-                    <label>COLOUR</label>
-                    <div> -><span class="s_char"><span class="c_9">${plan.dingiesColour}</span></span></div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div> <<≡ </div>
-                </div>
-                <div class="span3"></div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div class="ml10 txt_r"> A/ </div>
-                </div>
-                <div class="span11">
-                    <label>AIRCRAFT COLOUR AND MARKINGS</label>
-                    <div class="s_char span12" style="margin-left:0px;"> ${plan.aircraftColourAndMarkings}</div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div class="ml10 txt_r"> -> N /</div>
-                </div>
-                <div class="span10">
-                    <label>REMARKS</label>
-                    <div class="s_char span12" style="margin-left:0px;"> ${plan.remarks}</div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div> <<≡ </div>
-                </div>
-            </div>
-            <div class="row-fluid mt10">
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div class="ml10 txt_r"> C /</div>
-                </div>
-                <div class="span7">
-                    <label>PILOT IN COMMAND</label>
-                    <div class="s_char span12"  style="margin-left:0px;"> ${plan.pilotInCommand} </div>
-                </div>
-                <div class="span1">
-                    <label>&nbsp;</label>
-                    <div> ）<<≡ </div>
-                </div>
-                <div class="span3"></div>
-            </div>
+                            <div style="clear:both;"></div></td></tr>
+                </table>
+            </td></tr>
+            <tr><td class="bordered-bottom">
+                <table>
+                    <tr class="tr_cap">
+                        <td width="10">&nbsp;</td>
+                        <td width="18%"><label class="plan_til_label">FILING TIME</label></td>
+                        <td width="5%">&nbsp;</td>
+                        <td width="25%"><label class="plan_til_label">ORIGINATOR</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val">
+                        <td></td>
+                        <td><span class="s_char"><span class="c_6">${plan.filingTime}</span></span></td>
+                        <td><div style="text-align: center;">→</div></td>
+                        <td><span class="s_char"><span class="c_8">${plan.originator}</span></span></td>
+                        <td><< ≡</td></tr>
+                    <tr>
+                        <td colspan="5" style="height:35px;"><label>SPECIFIC IDENTIFICATION OF ADDRESSEE(S) AND/OR ORIGINATOR</label></td></tr>
+                </table>
+            </td></tr>
+        </tbody>
+        <tbody>
+            <tr><td>
+                <table>
+                    <tr  class="tr_cap">
+                        <td width="27%"><label>3 MESSAGE TYPE</label></td>
+                        <td width="32%"><label>7 AIRCRAFT IDENTIFICATION</label></td>
+                        <td width="20%"><label>8 FLIGHT RULES</label></td>
+                        <td width="13%"><label>TYPE OF FLIGHT</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val">
+                        <td><<≡(FPL</td>
+                        <td>- <span class="s_char"><span class="c_7">${plan.aircraftIdentification}</span></td>
+                        <td>- <span class="s_char"><span class="c_1">${plan.flightRules}</span></td>
+                        <td class="text-center"><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></td>
+                        <td><<≡</td></tr>
+                </table>
+            </td></tr>
+            <tr><td>
+                <table>
+                    <tr  class="tr_cap">
+                        <td width="22%"><label>9 NUMBER</label></td>
+                        <td width="24%"><label>TYPE OF AIRCARAFT</label></td>
+                        <td  width="29%"><label>WAKE TURBULENCE CAT</label></td>
+                        <td width="15%"><label>10 EQUIPMENT</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val">
+                        <td>- <span class="s_char"><span class="c_2"><fmt:formatNumber value="${plan.flightNumber}" pattern="00"/> </span></span></td>
+                        <td><span class="s_char"><span class="c_4">${plan.typeOfAircraft}</span></span></td>
+                        <td>/ <span class="s_char"><span class="c_1">${plan.wakeTurbulenceCat}</span></span></td>
+                        <td>- <span class="s_char"><span class="c_4">${plan.equipment}</span></span></td>
+                        <td><<≡</td></tr>
+                </table>
+            </td></tr>
+            <tr><td>
+                <table>
+                    <tr  class="tr_cap">
+                        <td width="23%"><label  class="ml10">13 DEPARTURE AERODROME</label></td>
+                        <td width="15%">&nbsp;</td>
+                        <td width="12%" class="text-center"><label>TIME</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val">
+                        <td class="text-center"> - <span class="s_char"><span class="c_4">${plan.departureAerodrome}</span></span></td>
+                        <td></td>
+                        <td><span class="s_char"><span class="c_4">${plan.departureTime}</span></span></td>
+                        <td style="padding-left:20px;"><<≡</td></tr>
+                </table>
+            </td></tr>
+            <tr><td>
+                <table>
+                    <tr class="tr_cap">
+                        <td width="1%">&nbsp;</td>
+                        <td width="15%"><label>15 CRUISING SPEED</label></td>
+                        <td width="4%">&nbsp;</td>
+                        <td width="16%"><label>LEVEL</label></td>
+                        <td width="3%">&nbsp;</td>
+                        <td><label>ROUTE</label></td></tr>
+                    <tr class="tr_val" >
+                        <td style="vertical-align: top;">-</td>
+                        <td style="vertical-align: top;"><span class="s_char"><span class="c_5">${plan.cruisingSpeed}</span></span></td>
+                        <td style="vertical-align: top;"></td>
+                        <td style="vertical-align: top;"><span class="s_char"><span class="c_5">${plan.flightLevel}</span></span></td>
+                        <td style="vertical-align: top;">→</td>
+                        <td class="bordered" style="height:120px;vertical-align: top;">${plan.route}
+                            <div style="position:relative;float:right;top:90px;width:60px;"><< ≡</div></td>
+                    </tr>
+                    </table>
+            </td></tr>
+            <tr><td>
+                <table>
+                    <tr class="tr_cap">
+                        <td></td>
+                        <td><label  class="ml10"><br/>16 DESTINATION AERODROME</label></td>
+                        <td></td>
+                        <td><label>TOTAL EET<br/>HR. MIN</label></td>
+                        <td><label><br/>ALTN AERODROME</label></td>
+                        <td><label><br/>2ND ALTN AERODROME</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val">
+                        <td></td>
+                        <td>- <span class="s_char"> <span class="c_4">${plan.destinationAerodrome}</span></span></td>
+                        <td></td>
+                        <td><span class="s_char"><span class="c_4"> ${plan.totalEet}</span></span></td>
+                        <td>-> <span class="s_char"> <span class="c_4">${plan.altnAerodrome}</span></span></td>
+                        <td>-> <span class="s_char"><span class="c_4">${plan.altn2rdAerodrome}</span></span></td>
+                        <td><<≡</td></tr>
+                </table>
+            </td></tr>
+            <tr><td class="bordered-bottom">
+                <table>
+                    <tr class="tr_cap"><td><label  class="ml10">18 OTHER INFORMATION</label></td></tr>
+                    <tr class="tr_val"><td class="bordered" style="height:90px; vertical-align: top;">${plan.otherInformation}
+                        <div style="position:relative;float:right;top:60px;width:90px;">) <<≡</div></td></tr>
+                </table>
+            </td></tr>
+        </tbody>
+        <tbody>
+            <tr  class="tr_cap"><td class="text-center"><label>SUPPLEMENTARY INFORMATION (NOT TO BE TRANSMITTED IN FPL MESSAGES)</label></td></tr>
+            <tr><td>
+                <table>
+                    <tr>
+                        <td colspan="2" style="height:20px;"><label>19 ENDURANCE</label></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="5" class="text-center"><label>EMERGENCY RADIO</label></td>
+                        <td></td></tr>
+                    <tr>
+                        <td width="5%">&nbsp;</td>
+                        <td width="10%" class="text-center"><label>HR MIN</label></td>
+                        <td width="6%">&nbsp;</td>
+                        <td width="18%"><label>PERSONS ON BOARD</label></td>
+                        <td width="25%">&nbsp;</td>
+                        <td width="5%">&nbsp;</td>
+                        <td width="3%"><label>UHF</label></td>
+                        <td width="6%">&nbsp;</td>
+                        <td width="3%"><label>VHF</label></td>
+                        <td width="6%">&nbsp;</td>
+                        <td width="3%"><label>ELT</label></td>
+                        <td>&nbsp;</td></tr>
+                    <tr class="tr_val">
+                        <td>- E / </td>
+                        <td><span class="s_char"><span class="c_4">${plan.endurance}</span></span></td>
+                        <td></td>
+                        <td>-> P / <span class="s_char"><span class="c_3"><fmt:formatNumber value="${plan.personsOnBoard}" pattern="000"/> </span></span></td>
+                        <td></td>
+                        <td>-> R / </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.emergencyRadio,'U')}"><span class="s_char"><span class="c_1">U </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                        </td>
 
-            <div class="row-fluid mt10">
-                <div class="span5" style="font-size:16px;">FIELD BY</div>
-                <div class="span7" style="font-size:16px;">SPACE RESERVED FOR ADDITIONAL REQUIREMENTS</div>
-            </div>
-            <div class="row-fluid" style="border-top:1px solid #000;border-bottom:1px solid #000;">
-                <div class="span5">
-                    ${plan.filedBy}
-                </div>
-                <div class="span7" style="border-left:1px solid #000;">
-                    <div class="row-fluid">
-                        <div class="span12" style="margin-left:5px;font-size:14px;">Please provide a telephone number so our operators can contact you if needed.</div>
-                        <div class="span12" style="margin-left:5px;">${plan.telephone}</div>
-                    </div>
-                </div>
+                        <td></td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.emergencyRadio,'V')}"><span class="s_char"><span class="c_1">V </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                            </td>
+                        <td></td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.emergencyRadio,'E')}"><span class="s_char"><span class="c_1">E </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                            </td>
+                        <td></td></tr>
+                </table>
+            </td></tr>
+            <tr><td>
+                <table>
+                    <tr class="tr_cap text-center">
+                        <td width="1%">&nbsp;</td>
+                        <td width="12%"><label>SURIVIVAL EQUIPMENT</label></td>
+                        <td width="9%"><label><br/>POLAR</label></td>
+                        <td width="9%"><label><br/>DESERT</label></td>
+                        <td width="9%"><label><br/>MARITIME</label></td>
+                        <td width="9%"><label><br/>JUNGLE</label></td>
+                        <td width="9%"><label><br/>JACKETS</label></td>
+                        <td width="9%"><label><br/>LIGHT</label></td>
+                        <td width="9%"><label><br/>FLUORES</label></td>
+                        <td width="9%"><label><br/>UHF</label></td>
+                        <td width="9%"><label><br/>VHF</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val text-center">
+                        <td></td>
+                        <td>->
+                            <c:choose>
+                                <c:when test="${plan.survivalEquipment==null||plan.survivalEquipment==''}"><img src="${ctx}/static/images/char_no_selected.gif"/></c:when>
+                                <c:otherwise> <span class="s_char">S</span></c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>/
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalEquipment,'P')}"><span class="s_char"><span class="c_1">P </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                       </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalEquipment,'D')}"><span class="s_char"><span class="c_1">D </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalEquipment,'M')}"><span class="s_char"><span class="c_1">M </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalEquipment,'J')}"><span class="s_char"><span class="c_1">J </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose></td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${(plan.survivalJackets==null)||plan.survivalJackets==''}"><img src="${ctx}/static/images/char_no_selected.gif"/></c:when>
+                                <c:otherwise> <span class="s_char">J</span></c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>/
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalJackets,'L')}"><span class="s_char"><span class="c_1">L </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                            </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalJackets,'F')}"><span class="s_char"><span class="c_1">F </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                        </td>
 
-            </div>
-        </div>
-
-        <div style="clear:both;"></div>
-        <!-- plan group 4 -->
-        <div class="row-fluid mt10">
-            <label class="span1 ml10">回复意见:</label>
-            <div class="span6">
-                <textarea name="auditNote" rows="4" style="width:96%;">${plan.auditNote}</textarea>
-            </div>
-            <div class="span2">
-                <label class="radio ml10"><input type="radio" <c:if test="${plan.auditStatus=='YES'}">checked="checked"</c:if> name="auditStatus"  value="YES">Yes</label>
-                <label class="radio ml10"><input type="radio"  <c:if test="${plan.auditStatus=='NO'}">checked="checked"</c:if>name="auditStatus"  value="NO">No</label>
-            </div>
-            <div class="span2">
-                <br/>
-                <input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>
-                <input id="cancel_btn" class="btn" type="button" value="返回" onclick="history.back()"/>
-            </div>
-            <div class="span12" style="height:10px;"></div>
-        </div>
-    </div>
- </div>
-    </fieldset>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalJackets,'U')}"><span class="s_char"><span class="c_1">U </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(plan.survivalJackets,'V')}"><span class="s_char"><span class="c_1">V </span></span></c:when>
+                                <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td></td></tr>
+                </table>
+            </td></tr>
+            <tr><td><table>
+                <tr class="tr_cap">
+                    <td width="16%" colspan="2"><label>DINGHIES NUMBER</label></td>
+                    <td width="3%"></td>
+                    <td width="10%"><label>CAPACITY</label></td>
+                    <td width="3%"></td>
+                    <td width="6%"><label>COVER</label></td>
+                    <td width="3%"></td>
+                    <td width="40%"><label>COLOUR</label></td>
+                    <td></td>
+                    <td></td></tr>
+                <tr class="tr_val">
+                    <td>->
+                        <c:choose>
+                            <c:when test="${plan.dingiesNumber==0 && plan.dingiesCapacity==0 && (plan.dingiesCover == null || plan.dingiesCover=='')}">
+                                <img src="${ctx}/static/images/char_no_selected.gif"/></c:when>
+                            <c:otherwise><span class="s_char"><span class="c_1">D</span></span></c:otherwise>
+                        </c:choose>
+                       </td>
+                    <td>/ <span class="s_char"><span class="c_2"><fmt:formatNumber value="${plan.dingiesNumber}" pattern="00"/></span></span></td>
+                    <td>-></td>
+                    <td><span class="s_char"><span class="c_3"><fmt:formatNumber value="${plan.dingiesCapacity}" pattern="000"/></span></span></td>
+                    <td>-></td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${fn:contains(plan.dingiesCover,'C')}"><span class="s_char"><span class="c_1">C</span></span></c:when>
+                            <c:otherwise><img src="${ctx}/static/images/char_no_selected.gif"/></c:otherwise>
+                        </c:choose>></td>
+                    <td>-></td>
+                    <td><span class="s_char" style="background:none;;"><span class="c_12">${plan.dingiesColour}</span></span></td>
+                    <td><<≡</td>
+                    <td></td></tr>
+            </table></td></tr>
+            <tr><td>
+                <table>
+                    <tr class="tr_cap">
+                        <td width="3%"></td>
+                        <td><label>AIRCRAFT COLOUR AND MARKINGS</label></td></tr>
+                    <tr class="tr_val">
+                        <td> A/ </td>
+                        <td class="bordered">${plan.aircraftColourAndMarkings}</td></tr>
+                </table>
+            </td></tr>
+            <tr><td>
+                <table>
+                    <tr class="tr_cap">
+                        <td width="7%"></td>
+                        <td><label>REMARKS</label></td>
+                        <td></td></tr>
+                    <tr class="tr_val">
+                        <td> ->
+                            <c:choose>
+                                <c:when test="${plan.remarks == null || plan.remarks==''}">
+                                    <img src="${ctx}/static/images/char_no_selected.gif"/></c:when>
+                                <c:otherwise><span class="s_char"><span class="c_1">N</span></span></c:otherwise>
+                            </c:choose>
+                            /</td>
+                        <td class="bordered">${plan.remarks}</td>
+                        <td><<≡</td></tr>
+                </table>
+            </td></tr>
+            <tr><td><table>
+                <tr class="tr_cap">
+                    <td width="6%"></td>
+                    <td><label>PILOT IN COMMAND</label></td>
+                    <td></td>
+                    <td></td></tr>
+                <tr class="tr_val">
+                    <td> C /</td>
+                    <td class="bordered"> ${plan.pilotInCommand} </td>
+                    <td> ）<<≡ </td>
+                    <td></td></tr>
+            </table></td></tr>
+            <tr>
+                <td class="bordered-bottom"><table>
+                    <tr class="tr_cap">
+                        <td width="40%" style="vertical-align: bottom;"><label>FIELD BY</label></td>
+                        <td  style="vertical-align: bottom;"><label>SPACE RESERVED FOR ADDITIONAL REQUIREMENTS</label></td></tr>
+                    </table></td></tr>
+            <tr><td>
+                    <table>
+                    <tr class="tr_val">
+                        <td style="width:40%;height:60px;border-right:1px solid #ddd;font-size:24px;text-align: center;vertical-align: middle;">${plan.filedBy}</td>
+                        <td style="vertical-align: top;">
+                            <div style="line-height:25px;font-weight:normal;font-size:14px;">Please provide a telephone number so our operators can contact you if needed.</div>
+                            <div style="font-size:20px;text-align:center;margin-top:5px;">${plan.telephone}</div>
+                        </td></tr>
+                </table></td>
+            </tr>
+        </tbody>
+    </table>
+   <div class="bordered" style="background-color:#EEE;margin-top:5px;padding:10px;">
+    <table class="tbl-audit">
+        <tbody>
+            <tr>
+                <td>
+                    <label style="float:left;width:200px;display:inline-block;font-weight:bold;" >Audit Opinion:</label>
+                    <label class="radio" style="float:right;width:80px;display:inline-block;"><input type="radio" <c:if test="${plan.auditStatus=='YES'}">checked="checked"</c:if> name="auditStatus"  value="YES">Accept</label>
+                    <label class="radio" style="float:right;width:80px;display:inline-block"><input type="radio"  <c:if test="${plan.auditStatus=='NO'}">checked="checked"</c:if>name="auditStatus"  value="NO">Reject</label>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="auditNote" rows="4" style="width:95%;">${plan.auditNote}</textarea></td>
+                    <td style="width:120px;vertical-align:top;">
+                        <input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>
+                        <input id="cancel_btn" class="btn" type="button" value="返回" onclick="history.back()"/>
+                    </td></tr>
+        </tbody>
+    </table>
+   </div>
+  </fieldset>
 
     </form>
 
