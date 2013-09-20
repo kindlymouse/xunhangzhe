@@ -6,7 +6,7 @@
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="index.html"><span>Rainner&nbsp;&nbsp;FSS</span></a>
+                <a class="brand" href="#"><span>九洲FSS</span></a>
                 <div class="nav-collapse">
                     <ul class="nav">
                         <li id="nav_home"><a href="#">首页</a></li>

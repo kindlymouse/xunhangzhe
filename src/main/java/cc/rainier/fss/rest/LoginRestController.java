@@ -23,7 +23,7 @@ public class LoginRestController extends BaseJsonpController{
 
         logger.debug("Login From API");
 
-        return getReturnByJson(callback,"{result:'sucess', userId:'"+ userId +"', userName:'admin'}" );
+        return getReturnByJson(callback,"{result:'sucess', userId:'"+ userId +"', userName:'超级管理员', userCode: '1'}" );
     }
 
     @RequestMapping(value = "test",method = RequestMethod.GET)
