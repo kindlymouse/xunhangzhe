@@ -26,7 +26,8 @@
         .tbl-plan .tr_val td{vertical-align: middle; height:32px;}
         .tbl-plan .s_char{
             border:1px solid #999;
-            padding:5px 7px 1px 7px;
+            padding:0px 7px 0px 7px;
+            display:inline-block;
             background-image: url("${ctx}/static/images/b_char.gif");
             background-repeat: repeat-x;
         }
@@ -285,7 +286,7 @@
                         <td>
                             <c:choose>
                                 <c:when test="${(plan.survivalJackets==null)||plan.survivalJackets==''}"><img src="${ctx}/static/images/char_no_selected.gif"/></c:when>
-                                <c:otherwise> <span class="s_char">J</span></c:otherwise>
+                                <c:otherwise>-> <span class="s_char"><span class="c_1">J</span></span></c:otherwise>
                             </c:choose>
                         </td>
                         <td>/
