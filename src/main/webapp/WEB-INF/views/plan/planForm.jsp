@@ -2,13 +2,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
+
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <html>
 <head>
 	<title>计划审核</title>
     <style>
-        .c_1{width:11px;}
+        .c_1{width:27.7px;text-align: center;background-image: url("${ctx}/static/images/b_char.gif");}
+        .c_1:last-child{background:none;}
         .c_2{width:39px;}
         .c_3{width:67px;}
         .c_4{width:95px;}
@@ -26,13 +29,10 @@
         .tbl-plan .tr_val td{vertical-align: middle; height:32px;}
         .tbl-plan .s_char{
             border:1px solid #999;
-            padding:0px 7px 0px 7px;
             display:inline-block;
-            background-image: url("${ctx}/static/images/b_char.gif");
-            background-repeat: repeat-x;
         }
         .tbl-plan span.s_char span{
-            letter-spacing: 17px;
+            /*letter-spacing: 17px;*/
             display: inline-block;
             line-height:27px;
         }
@@ -71,15 +71,15 @@
                 <table>
                     <tr class="tr_cap">
                         <td width="10">&nbsp;</td>
-                        <td width="18%"><label class="plan_til_label">FILING TIME</label></td>
+                        <td width="18%"><label>FILING TIME</label></td>
                         <td width="5%">&nbsp;</td>
-                        <td width="25%"><label class="plan_til_label">ORIGINATOR</label></td>
+                        <td width="25%"><label>ORIGINATOR</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
                         <td></td>
-                        <td><span class="s_char"><span class="c_6">${plan.filingTime}</span></span></td>
+                        <td><span class="s_char"><tags:printchars var="${plan.filingTime}" /></span></td>
                         <td><div style="text-align: center;">→</div></td>
-                        <td><span class="s_char"><span class="c_8">${plan.originator}</span></span></td>
+                        <td><span class="s_char"><tags:printchars var="${plan.originator}" /></span></td>
                         <td><< ≡</td></tr>
                     <tr>
                         <td colspan="5" style="height:35px;"><label>SPECIFIC IDENTIFICATION OF ADDRESSEE(S) AND/OR ORIGINATOR</label></td></tr>
@@ -97,9 +97,9 @@
                         <td></td></tr>
                     <tr class="tr_val">
                         <td><<≡(FPL</td>
-                        <td>- <span class="s_char"><span class="c_7">${plan.aircraftIdentification}</span></td>
-                        <td>- <span class="s_char"><span class="c_1">${plan.flightRules}</span></td>
-                        <td class="text-center"><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></td>
+                        <td>- <span class="s_char"><tags:printchars var="${plan.aircraftIdentification}" /></span></td>
+                        <td>- <span class="s_char"><span class="c_1">${plan.flightRules}</span></span></td>
+                        <td class="text-center"><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></span></td>
                         <td><<≡</td></tr>
                 </table>
             </td></tr>
@@ -112,10 +112,10 @@
                         <td width="15%"><label>10 EQUIPMENT</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
-                        <td>- <span class="s_char"><span class="c_2"><fmt:formatNumber value="${plan.flightNumber}" pattern="00"/> </span></span></td>
-                        <td><span class="s_char"><span class="c_4">${plan.typeOfAircraft}</span></span></td>
+                        <td>- <span class="s_char"><fmt:formatNumber var="s_flightNumber" value="${plan.flightNumber}" pattern="00"/><tags:printchars var="${s_flightNumber}"/></span></td>
+                        <td><span class="s_char"><tags:printchars var="${plan.typeOfAircraft}"/></span></td>
                         <td>/ <span class="s_char"><span class="c_1">${plan.wakeTurbulenceCat}</span></span></td>
-                        <td>- <span class="s_char"><span class="c_4">${plan.equipment}</span></span></td>
+                        <td>- <span class="s_char"><tags:printchars var="${plan.equipment}"/></span></td>
                         <td><<≡</td></tr>
                 </table>
             </td></tr>
@@ -124,12 +124,12 @@
                     <tr  class="tr_cap">
                         <td width="23%"><label  class="ml10">13 DEPARTURE AERODROME</label></td>
                         <td width="15%">&nbsp;</td>
-                        <td width="12%" class="text-center"><label>TIME</label></td>
+                        <td width="13%" class="text-center"><label>TIME</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
-                        <td class="text-center"> - <span class="s_char"><span class="c_4">${plan.departureAerodrome}</span></span></td>
+                        <td class="text-center"> - <span class="s_char"><tags:printchars var="${plan.departureAerodrome}"/></span></td>
                         <td></td>
-                        <td><span class="s_char"><span class="c_4">${plan.departureTime}</span></span></td>
+                        <td><span class="s_char"><tags:printchars var="${plan.departureTime}"/></span></td>
                         <td style="padding-left:20px;"><<≡</td></tr>
                 </table>
             </td></tr>
@@ -144,9 +144,9 @@
                         <td><label>ROUTE</label></td></tr>
                     <tr class="tr_val" >
                         <td style="vertical-align: top;">-</td>
-                        <td style="vertical-align: top;"><span class="s_char"><span class="c_5">${plan.cruisingSpeed}</span></span></td>
+                        <td style="vertical-align: top;"><span class="s_char"><tags:printchars var="${plan.cruisingSpeed}"/></span></td>
                         <td style="vertical-align: top;"></td>
-                        <td style="vertical-align: top;"><span class="s_char"><span class="c_5">${plan.flightLevel}</span></span></td>
+                        <td style="vertical-align: top;"><span class="s_char"><tags:printchars var="${plan.flightLevel}"/></span></td>
                         <td style="vertical-align: top;">→</td>
                         <td class="bordered" style="height:120px;vertical-align: top;">${plan.route}
                             <div style="position:relative;float:right;top:90px;width:60px;"><< ≡</div></td>
@@ -165,11 +165,11 @@
                         <td></td></tr>
                     <tr class="tr_val">
                         <td></td>
-                        <td>- <span class="s_char"> <span class="c_4">${plan.destinationAerodrome}</span></span></td>
+                        <td>- <span class="s_char"><tags:printchars var="${plan.destinationAerodrome}"/></span></td>
                         <td></td>
-                        <td><span class="s_char"><span class="c_4"> ${plan.totalEet}</span></span></td>
-                        <td>-> <span class="s_char"> <span class="c_4">${plan.altnAerodrome}</span></span></td>
-                        <td>-> <span class="s_char"><span class="c_4">${plan.altn2rdAerodrome}</span></span></td>
+                        <td><span class="s_char"><tags:printchars var="${plan.totalEet}"/></span></td>
+                        <td>-> <span class="s_char"><tags:printchars var="${plan.altnAerodrome}"/></span></td>
+                        <td>-> <span class="s_char"><tags:printchars var="${plan.altn2rdAerodrome}"/></span></td>
                         <td><<≡</td></tr>
                 </table>
             </td></tr>
@@ -195,7 +195,7 @@
                         <td></td></tr>
                     <tr>
                         <td width="5%">&nbsp;</td>
-                        <td width="10%" class="text-center"><label>HR MIN</label></td>
+                        <td width="13%" class="text-center"><label>HR MIN</label></td>
                         <td width="6%">&nbsp;</td>
                         <td width="18%"><label>PERSONS ON BOARD</label></td>
                         <td width="25%">&nbsp;</td>
@@ -208,9 +208,9 @@
                         <td>&nbsp;</td></tr>
                     <tr class="tr_val">
                         <td>- E / </td>
-                        <td><span class="s_char"><span class="c_4">${plan.endurance}</span></span></td>
+                        <td><span class="s_char"><tags:printchars var="${plan.endurance}"/></span></td>
                         <td></td>
-                        <td>-> P / <span class="s_char"><span class="c_3"><fmt:formatNumber value="${plan.personsOnBoard}" pattern="000"/> </span></span></td>
+                        <td>-> P / <span class="s_char"><fmt:formatNumber var="s_personsOnBoard" value="${plan.personsOnBoard}" pattern="000"/><tags:printchars var="${s_personsOnBoard}"/></span></td>
                         <td></td>
                         <td>-> R / </td>
                         <td>
@@ -257,7 +257,7 @@
                         <td>->
                             <c:choose>
                                 <c:when test="${plan.survivalEquipment==null||plan.survivalEquipment==''}"><img src="${ctx}/static/images/char_no_selected.gif"/></c:when>
-                                <c:otherwise> <span class="s_char">S</span></c:otherwise>
+                                <c:otherwise> <span class="s_char"><span class="c_1">S</span></span></c:otherwise>
                             </c:choose>
                         </td>
                         <td>/
@@ -336,9 +336,9 @@
                             <c:otherwise><span class="s_char"><span class="c_1">D</span></span></c:otherwise>
                         </c:choose>
                        </td>
-                    <td>/ <span class="s_char"><span class="c_2"><fmt:formatNumber value="${plan.dingiesNumber}" pattern="00"/></span></span></td>
+                    <td>/ <span class="s_char"><fmt:formatNumber var="s_dingiesNumber" value="${plan.dingiesNumber}" pattern="00"/><tags:printchars var="${s_dingiesNumber}"/></span></td>
                     <td>-></td>
-                    <td><span class="s_char"><span class="c_3"><fmt:formatNumber value="${plan.dingiesCapacity}" pattern="000"/></span></span></td>
+                    <td><span class="s_char"><fmt:formatNumber var="s_dingiesCapacity" value="${plan.dingiesCapacity}" pattern="000"/><tags:printchars var="${s_dingiesCapacity}"/></span></td>
                     <td>-></td>
                     <td>
                         <c:choose>
