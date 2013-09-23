@@ -54,6 +54,7 @@ public class BriefService extends BaseService {
      * 创建动态查询条件组合.
      */
     protected Specification<Brief> buildSpecification(Long userId, Map<String, Object> searchParams) {
+        if ( searchParams == null ) return null;
         Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
         Specification<Brief> spec = DynamicSpecifications.bySearchFilter(filters.values(), Brief.class);
         return spec;
