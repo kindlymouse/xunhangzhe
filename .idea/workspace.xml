@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="fss:war" />
+      <artifact name="fss:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="302c508b-5155-42c5-8524-f3bd3674cffa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/FlightPlanDaoTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/FlightPlanRestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/fpl/FPLService.java" afterPath="$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/fpl/FPLService.java" />
+    <list default="true" id="302c508b-5155-42c5-8524-f3bd3674cffa" name="Default" comment="增加REST接口功能&#10;完善其他细节">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/StationRestController.java" afterPath="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/StationRestController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/applicationContext-shiro.xml" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext-shiro.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/fss_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/fss_war.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fss.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/application.properties" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375377354248" ignored="false" />
     <file path="/Task.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375417429066" ignored="false" />
-    <file path="/Dummy.txt" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376131244226" ignored="false" />
-    <file path="/header.jsp" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375946399612" ignored="false" />
-    <file path="/default.jsp" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375946543871" ignored="false" />
+    <file path="/Dummy.txt" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379979963686" ignored="false" />
+    <file path="/header.jsp" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379692600359" ignored="false" />
+    <file path="/default.jsp" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379692688164" ignored="false" />
     <file path="/default.css" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375948975379" ignored="false" />
     <file path="/InfoController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375949880622" ignored="false" />
     <file path="/File Header.txt.ft" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1375949709712" ignored="false" />
@@ -22,10 +28,26 @@
     <file path="/fss.sql" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376123543959" ignored="false" />
     <file path="/FlightPlan.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376128992860" ignored="false" />
     <file path="/FlightPlanDao.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376129584098" ignored="false" />
-    <file path="/FPLService.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376137982304" ignored="false" />
+    <file path="/FPLService.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379407415911" ignored="false" />
     <file path="/FlightPlanData.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376130317138" ignored="false" />
-    <file path="/FlightPlanRestController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376185084258" ignored="false" />
-    <file path="/FlightPlanDaoTest.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376186384892" ignored="false" />
+    <file path="/FlightPlanRestController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379581792105" ignored="false" />
+    <file path="/FlightPlanDaoTest.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376274093154" ignored="false" />
+    <file path="/TaskDao.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376191916745" ignored="false" />
+    <file path="D:/research/spring-framework/spring-data-jpa-examples/pom.xml" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376195739380" ignored="false" />
+    <file path="/FPLController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1376274862857" ignored="false" />
+    <file path="/taskForm.jsp" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1377078483359" ignored="false" />
+    <file path="/LoginRestController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379358387570" ignored="false" />
+    <file path="/BaseJsonpController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379512503246" ignored="false" />
+    <file path="/a.dummy" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379356124592" ignored="false" />
+    <file path="/applicationContext-shiro.xml" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379408613819" ignored="false" />
+    <file path="/decorators.xml" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379408608312" ignored="false" />
+    <file path="/xunhangzhe.css" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379492074631" ignored="false" />
+    <file path="/FPLListV.js" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379495095023" ignored="false" />
+    <file path="/FlightPlanC.js" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379494825247" ignored="false" />
+    <file path="/fragment.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379575938239" ignored="false" />
+    <file path="/StationRestController.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379752302817" ignored="false" />
+    <file path="/BriefService.java" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379748595211" ignored="false" />
+    <file path="/planForm.jsp" changelist="302c508b-5155-42c5-8524-f3bd3674cffa" time="1379968136164" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +67,22 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/web/fpl/FlightPlanController.java" line="30" class="cc.rainier.fss.web.fpl.FlightPlanController" package="cc.rainier.fss.web.fpl">
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
+      </breakpoint>
+    </line_breakpoints>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
@@ -80,36 +118,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/FlightPlanRestController.java" line="83" class="cc.rainier.fss.rest.FlightPlanRestController" package="cc.rainier.fss.rest">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/FlightPlanDaoTest.java" line="42" class="cc.rainier.fss.repository.FlightPlanDaoTest" package="cc.rainier.fss.repository">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -119,97 +127,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TaskDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/repository/TaskDao.java">
+      <file leaf-file-name="StationRestController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/StationRestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="17" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlightPlanDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/repository/FlightPlanDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="57" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlightPlan.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/FlightPlan.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="13" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IdEntity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/IdEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="22" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskDaoTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/TaskDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="66" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlightPlanDaoTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/FlightPlanDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.47368422">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="tag#beans#0;tag#beans#0" expanded="false" />
-                <element signature="tag#beans#1;tag#beans#0" expanded="false" />
-                <element signature="tag#beans#2;tag#beans#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.test.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/application.test.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FlightPlanData.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/data/FlightPlanData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="29" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0">
+            <state line="81" column="49" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.3144654">
               <folding />
             </state>
           </provider>
@@ -233,22 +154,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/static/bootstrap/2.3.2/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/xunhangzhe/app.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/xunhangzhe/resources/css/xunhangzhe.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/xunhangzhe/app/view/fpl/FPLFormV.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/xunhangzhe/app/controller/FlightPlanC.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/xunhangzhe/app/view/fpl/FPLListV.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/styles/default.css" />
-        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/web/info/InfoController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/web/task/TaskController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/web/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/FlightPlan.java" />
-        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/repository/FlightPlanDao.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/application.test.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/cc/rainier/fss/data/FlightPlanData.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/sql/mysql/fss.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/fpl/FPLService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/applicationContext-shiro.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/BaseJsonpController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/LoginRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/airport/AirportService.java" />
         <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/FlightPlanRestController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/FlightPlanDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/brief/BriefService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/plan/planForm.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/StationRestController.java" />
       </list>
     </option>
   </component>
@@ -307,7 +228,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -339,12 +259,30 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -362,45 +300,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,49 +330,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="repository" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="plan" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -478,27 +364,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="functional" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cc" />
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rainier" />
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="fss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="functional" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -580,7 +480,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task" />
+              <option name="myItemId" value="fpl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -644,7 +544,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task" />
+              <option name="myItemId" value="social" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -708,7 +608,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="rest" />
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="brief" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -738,7 +642,67 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="repository" />
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="airport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -786,50 +750,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fss" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="fileTemplates" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql-connector-java-5.1.22-bin.jar!/" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/log4j-1.2.17.jar!/" />
+    <property name="project.structure.side.proportion" value="0.13053612" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cc.rainier.fss.rest" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\src\main\webapp\xunhangzhe\resources\images\fpl" />
+      <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\src\main\webapp\xunhangzhe\app\view\Common" />
+      <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\lib" />
+      <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\src\main\java\cc\rainier\fss\service\account" />
       <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\src\main\webapp\static\images" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\src\main\webapp\xunhangzhe\app\common" />
+      <recent name="D:\My_Works\lixiaofei\xunhangzhe\fss\src\main\webapp\xunhangzhe\app\form" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.FlightPlanDaoTest.createFPL">
+  <component name="RunManager" selected="Tomcat Server.FSS_Tomcat7">
     <configuration default="false" name="JpaMappingTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -977,13 +940,9 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
+      <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
     <configuration default="true" type="ResinConfigurationType" factoryName="Local">
@@ -993,25 +952,18 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -1042,6 +994,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1055,6 +1020,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1076,6 +1048,12 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
@@ -1137,12 +1115,6 @@
           <option name="PROGRAM_PARAMETERS" value="" />
         </SHUTDOWN>
       </ConfigurationWrapper>
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="FSS_Tomcat7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0">
@@ -1227,9 +1199,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest.createFPL" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest.saveFPL" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest.findBySysFillUserId" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest.findBySysFillUserId" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest.createFPL" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest.saveFPL" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.JpaMappingTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.FlightPlanDaoTest" />
       </list>
@@ -1280,37 +1252,73 @@
       <created>1376131253311</created>
       <updated>1376131253311</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="增加FlightPlan的RESTful服务接口类&#10;增加FlightPlanDao的单元测试类，不过单元测试未通过">
+      <created>1376186584727</created>
+      <updated>1376186584727</updated>
+    </task>
+    <task id="LOCAL-00006" summary="增加REST接口功能&#10;完善其他细节">
+      <created>1379522967209</created>
+      <updated>1379522967209</updated>
+    </task>
+    <task id="LOCAL-00007" summary="增加REST修改&#10;修改产品信息">
+      <created>1379692744227</created>
+      <updated>1379692744227</updated>
+    </task>
+    <task id="LOCAL-00008" summary="增加REST接口功能&#10;完善其他细节">
+      <created>1379968176442</created>
+      <updated>1379968176442</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.67642957" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39888424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.55509067" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27754533" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32078102" sideWeight="0.49806702" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15786083" sideWeight="0.34309623" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32357043" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21713917" sideWeight="0.39051604" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24420103" sideWeight="0.60111576" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32775453" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32760897" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21713917" sideWeight="0.32217574" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45442536" sideWeight="0.4974227" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40554962" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1353,7 +1361,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改fs_flight_plan表结构&#10;增加FlightPlan的DAO/Service类&#10;增加FlightPlan的单元测试Data类&#10;修改单元测试的配置文件，不要每次初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加REST接口功能&#10;完善其他细节" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1370,132 +1378,129 @@
     <MESSAGE value="创建fs_flight_plan表结构&#10;增加表单使用图标" />
     <MESSAGE value="修改fs_flight_plan表结构&#10;增加FlightPlan的Entity类，该类的属性未设置全" />
     <MESSAGE value="修改fs_flight_plan表结构&#10;增加FlightPlan的DAO/Service类&#10;增加FlightPlan的单元测试Data类&#10;修改单元测试的配置文件，不要每次初始化" />
+    <MESSAGE value="增加FlightPlan的RESTful服务接口类&#10;增加FlightPlanDao的单元测试类，不过单元测试未通过" />
+    <MESSAGE value="增加REST修改&#10;修改产品信息" />
+    <MESSAGE value="增加REST接口功能&#10;完善其他细节" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/fpl/FPLService.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_10/src.zip!/java/net/DualStackPlainSocketImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="12" selection-start="1436" selection-end="1447" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="258" column="22" selection-start="7235" selection-end="7235" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/TaskRestController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/LoginRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1528" selection-end="1929" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/FlightPlanRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="33" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/repository/TaskDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="17" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/account/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="16" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.33178654">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/service/account/AccountServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="30" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.46403712">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/data/FlightPlanData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/repository/FlightPlanDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="57" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/IdEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="22" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
+        <state line="25" column="46" selection-start="787" selection-end="787" vertical-scroll-proportion="0.49776787">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
+        <state line="22" column="28" selection-start="641" selection-end="650" vertical-scroll-proportion="0.027502751">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/FlightPlan.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0">
+        <state line="8" column="53" selection-start="407" selection-end="407" vertical-scroll-proportion="0.028571429">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/TaskDaoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/layouts/default.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="66" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0">
+        <state line="15" column="62" selection-start="624" selection-end="624" vertical-scroll-proportion="0.028571429">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/functional/cc/rainier/fss/functional/BaseFunctionalTestCase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/social/AttachService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="42" column="40" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.17491749">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/Attach.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="tag#beans#0;tag#beans#0" expanded="false" />
-            <element signature="tag#beans#1;tag#beans#0" expanded="false" />
-            <element signature="tag#beans#2;tag#beans#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/application.test.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="24" column="28" selection-start="595" selection-end="603" vertical-scroll-proportion="-0.13751376">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/cc/rainier/fss/repository/FlightPlanDaoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/Landport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.47368422">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="10" column="13" selection-start="199" selection-end="199" vertical-scroll-proportion="0.2750275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/fpl/FPLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="51" selection-start="2241" selection-end="2281" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/Airport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/airport/AirportService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="48" selection-start="2073" selection-end="2073" vertical-scroll-proportion="1.2702079">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/service/brief/BriefService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="69" selection-start="1307" selection-end="1319" vertical-scroll-proportion="0.33256352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/entity/Brief.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="27" selection-start="591" selection-end="598" vertical-scroll-proportion="-2.0023096">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/FlightPlanRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="0" selection-start="2211" selection-end="2389" vertical-scroll-proportion="0.6547619">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/plan/planForm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="62" selection-start="3448" selection-end="3448" vertical-scroll-proportion="0.8465011">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cc/rainier/fss/rest/StationRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="49" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.3144654">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1505,11 +1510,11 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>fss:war</last-edited>
+          <last-edited>fss:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.13053612" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1545,7 +1550,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.13053612" />
               </list>
             </option>
           </splitter-proportions>
@@ -1557,7 +1562,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.13053612" />
               </list>
             </option>
           </splitter-proportions>
@@ -1581,7 +1586,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.13053612" />
               </list>
             </option>
           </splitter-proportions>

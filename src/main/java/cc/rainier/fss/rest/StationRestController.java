@@ -79,7 +79,7 @@ public class StationRestController extends BaseJsonpController{
     @ResponseBody
     public ResponseEntity<String> getWeather(@PathVariable("id") Long id,@RequestParam("callback") String callback){
         DateFormat df = new SimpleDateFormat("M-d");
-        DateFormat dfh = new SimpleDateFormat("hh:00");
+        DateFormat dfh = new SimpleDateFormat("HH:00");
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
         String jsonStr = "";
