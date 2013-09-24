@@ -97,7 +97,7 @@ public class BriefController extends BaseController{
 	public String delete(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
 		Brief brief = briefService.get(id);
        briefService.deleteBrief(id);
-		redirectAttributes.addFlashAttribute("message", "删除简报[" + brief.getId() + "]成功");
+		redirectAttributes.addFlashAttribute("message", "删除简报[" + brief.getId() + ":" + brief.getTitle() + "]成功");
 		return "redirect:/brief/";
 	}
 
@@ -106,13 +106,21 @@ public class BriefController extends BaseController{
 	 * 因为仅update()方法的form中有id属性，因此仅在update时实际执行.
 	 */
 	@ModelAttribute
-	public void getBrief(@RequestParam(value = "id", defaultValue = "-1") Long id, @RequestParam(value = "airport.id", defaultValue = "-1") Long aid, Model model) {
+	public void getBrief(@RequestParam(value = "id", defaultValue = "-1") Long id, @RequestParam(value = "airport.id", defaultValue = "-1") Long aid,
+                         @RequestParam(value = "pushed", defaultValue = "N") String pushed, Model model) {
 		if (id != -1) {
             Brief b = briefService.get(id);
             if(b.getAirport().getId() != aid){
                 b.setAirport(airportService.getAirport(aid));
             }
+            //当pushed值为空的时候，不会传进来？！
+            b.setPushed(pushed);
             model.addAttribute("brief", b);
 		}
+
+        if(pushed.equals("")){
+            model.addAttribute("pushed","N");
+        }
+
 	}
 }

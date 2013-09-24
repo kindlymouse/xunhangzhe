@@ -24,6 +24,7 @@
     </div>
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead><tr>
+            <th>#</th>
             <th>ADDRESSEE(S)</th>
             <th>FILING TIME</th>
             <th>ORIGINATOR</th>
@@ -33,9 +34,10 @@
             <th>AUDIT STATUS</th>
             <th>管理</th></tr></thead>
 		<tbody>
-		<c:forEach items="${plans.content}" var="plan">
+		<c:forEach items="${plans.content}" var="plan" varStatus="status">
 			<tr>
-				<td>${plan.addressee}</td>
+				<td>${status.index + 1}</td>
+                <td>${plan.addressee}</td>
                 <td>${plan.filingTime}</td>
                 <td>${plan.originator}</td>
                 <td>${plan.aircraftIdentification}</td>

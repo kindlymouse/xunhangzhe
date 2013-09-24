@@ -1,5 +1,7 @@
 package cc.rainier.fss.web.account;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +22,20 @@ public class LoginController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String login() {
-		return "account/login";
+
+        Subject currentUser = SecurityUtils.getSubject();
+
+        if(currentUser.isAuthenticated()){
+            return "redirect:/";
+        } else {
+            return "account/login";
+        }
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String fail(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String userName, Model model) {
 		model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, userName);
+        System.out.println("----------------" + userName);
 		return "account/login";
 	}
 

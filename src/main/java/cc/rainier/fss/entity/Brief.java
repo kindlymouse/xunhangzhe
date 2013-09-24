@@ -22,6 +22,7 @@ public class Brief extends IdEntity {
     private User sysFillUser;
     private Date sysFillTime;
     private Airport airport;
+    private String pushed;
 
     public String getTitle() {
         return title;
@@ -68,5 +69,14 @@ public class Brief extends IdEntity {
 
     public void setAirport(Airport airport) {
         this.airport = airport;
+    }
+
+    public String getPushed() {
+        return pushed;
+    }
+
+    public void setPushed(String pushed) {
+        if(pushed==null || pushed.equals("")) pushed="N";
+        this.pushed = pushed;
     }
 }

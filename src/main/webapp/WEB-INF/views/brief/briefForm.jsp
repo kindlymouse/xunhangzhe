@@ -28,6 +28,7 @@
                             <option value="${ap.id}" <c:if test="${ap.id == brief.airport.id}">selected="selected"</c:if>>${ap.name}</option>
                         </c:forEach>
                     </select>
+
                 </div>
             </div>
             <div class="control-group">
@@ -35,7 +36,15 @@
 				<div class="controls">
 					<textarea id="brief_content" name="content" class="span8" rows="10">${brief.content}</textarea>
 				</div>
-			</div>	
+			</div>
+            <div class="control-group">
+                <label class="control-label">&nbsp;</label>
+                <div class="controls">
+                    <label class="checkbox">是否推送
+                        <input type="checkbox" class="" name="pushed" value="Y" <c:if test="${brief.pushed=='Y'}">checked="checked"</c:if> />
+                    </label>
+               </div>
+            </div>
 			<div class="form-actions">
 				<input id="submit_btn" class="btn btn-primary" type="submit" value="提交"/>&nbsp;	
 				<input id="cancel_btn" class="btn" type="button" value="返回" onclick="history.back()"/>

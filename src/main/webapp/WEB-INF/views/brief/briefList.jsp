@@ -24,7 +24,14 @@
 	</div>
 
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
-		<thead><tr><th width="20">#</th><th  width="300">标题</th><th>内容</th><th  width="60">发布人</th><th  width="120">发布日期</th><th  width="80">管理</th></tr></thead>
+		<thead><tr>
+            <th width="20">#</th>
+            <th  width="300">标题</th>
+            <th>内容</th>
+            <th  width="120">发布人</th>
+            <th  width="120">发布日期</th>
+            <th width="60">?推送</th>
+            <th  width="80">管理</th></tr></thead>
 		<tbody>
 		<c:forEach items="${briefs.content}" var="brief"  varStatus="status">
 			<tr>
@@ -33,7 +40,8 @@
                 <td><tags:substr var="${brief.content}" strlen="50"/> </td>
                 <td>${brief.sysFillUser.name}</td>
                 <td><fmt:formatDate value="${brief.sysFillTime}" pattern="yyyy-MM-dd  HH:mm" /></td>
-				<td><a href="${ctx}/brief/delete/${brief.id}">删除</a></td>
+				<td style="text-align: center;">${brief.pushed}</td>
+                <td><a href="${ctx}/brief/delete/${brief.id}">删除</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>

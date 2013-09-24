@@ -104,7 +104,7 @@
             extraScrollPx: 150, //滚动条距离底部多少像素的时候开始加载，默认150
             bufferPx: 40, //载入信息的显示时间，时间越大，载入信息显示时间越短
             errorCallback: function() {
-                alert('error');
+                //alert('error');
             }, //当出错的时候，比如404页面的时候执行的函数
             loading: {
                 <%--img: "${ctx}/static/social/images/masonry_loading_1.gif",--%>
@@ -131,7 +131,7 @@
         <div class="img">
             <a href="http://www.jsfoot.com/js/images/more/2012-05-15/608.html"><img width="210" height="285" alt="js lazyload实现网页图片延迟加载特效" src="${ctx}/static/social/images/pic/01.jpg" /></a>
         </div>
-        <div class="title"><span>js lazyload实现网页图片延迟加载特效</span></div>
+        <div class="title"><span>航空事业多美女，速来围观.</span></div>
     </div>
     <div class="item_b clearfix">
         <div class="items_author fl">
