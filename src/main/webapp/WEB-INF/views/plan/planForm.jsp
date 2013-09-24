@@ -44,7 +44,7 @@
     <legend><small>计划审核</small></legend>
     <table class="tbl-plan bordered">
         <tbody><tr>
-            <td class="bordered-bottom text-center"><h3 style="margin-top:0px;margin-bottom:0px;">FIGHT PLAN</h3></td></tr></tbody>
+            <td class="bordered-bottom text-center"><h3 style="margin-top:0px;margin-bottom:0px;">FLIGHT PLAN</h3></td></tr></tbody>
         <tbody>
             <tr><td>
                 <table>
