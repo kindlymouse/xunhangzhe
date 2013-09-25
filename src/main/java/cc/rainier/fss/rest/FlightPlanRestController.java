@@ -35,7 +35,6 @@ import java.util.Map;
 public class FlightPlanRestController extends BaseJsonpController{
 
     private static Logger logger = LoggerFactory.getLogger(FlightPlanRestController.class);
-    private static final int PAGE_SIZE = 100;
 
     @Autowired
     private FPLService fplService;

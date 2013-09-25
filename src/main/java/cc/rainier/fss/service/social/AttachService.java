@@ -52,6 +52,7 @@ public class AttachService extends BaseService {
      * 创建动态查询条件组合.
      */
     protected Specification<Attach> buildSpecification(Long userId, Map<String, Object> searchParams) {
+        if ( searchParams == null ) return null;
         Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
         if(userId !=null && userId > 0) {
             filters.put("user.id", new SearchFilter("user.id", Operator.EQ, userId));

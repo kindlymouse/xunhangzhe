@@ -109,7 +109,7 @@ public class StationRestController extends BaseJsonpController{
     public ResponseEntity<String> getBrief(@PathVariable("id") Long airportId,@RequestParam("page") String pageNum,@RequestParam("limit") String pageLimit,@RequestParam("callback") String callback){
 
         //Map<String, Object> searchParams =  new HashMap<String, Object>();
-        //searchParams.put("airport_id",airportId.toString());
+        //searchParams.put("EQ_airport_id",airportId.toString());
         Page<Brief> BriefPage = briefService.getPageBrief(null, Integer.parseInt(pageNum),Integer.parseInt(pageLimit), "auto");
         if (BriefPage == null || BriefPage.getSize()==0) {
             logger.warn("Airport with user_id {} not found", airportId);
