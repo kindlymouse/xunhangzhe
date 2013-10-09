@@ -16,7 +16,7 @@
     <div class="row">
         <div class="span5">
             <form class="form-search" action="#">
-                <label>ADDRESSEE(S)：</label> <input type="text" name="search_LIKE_ADDRESSEE" class="input-medium" value="${param.search_LIKE_ADDRESSEE}">
+                <label>收电地点和单位：</label> <input type="text" name="search_LIKE_ADDRESSEE" class="input-medium" value="${param.search_LIKE_ADDRESSEE}">
                 <button type="submit" class="btn" id="search_btn">查询</button>
             </form>
         </div>
@@ -25,13 +25,13 @@
 	<table id="contentTable" class="table table-striped table-bordered table-condensed">
 		<thead><tr>
             <th>#</th>
-            <th>ADDRESSEE(S)</th>
-            <th>FILING TIME</th>
-            <th>ORIGINATOR</th>
-            <th>AIRCRAFT IDENTIFICATION</th>
-            <th>FLIGHT RULES</th>
-            <th>TYPE OF FLIGHT</th>
-            <th>AUDIT STATUS</th>
+            <th>收电地点和单位</th>
+            <th>申报时间</th>
+            <th>发电地点和单位</th>
+            <th>航空器识别标志</th>
+            <th>飞行规则</th>
+            <th>飞行种类</th>
+            <th>审核状态</th>
             <th>管理</th></tr></thead>
 		<tbody>
 		<c:forEach items="${plans.content}" var="plan" varStatus="status">

@@ -44,13 +44,13 @@
     <legend><small>计划审核</small></legend>
     <table class="tbl-plan bordered">
         <tbody><tr>
-            <td class="bordered-bottom text-center"><h3 style="margin-top:0px;margin-bottom:0px;">FLIGHT PLAN</h3></td></tr></tbody>
+            <td class="bordered-bottom text-center"><h3 style="margin-top:0px;margin-bottom:0px;">飞行计划</h3></td></tr></tbody>
         <tbody>
             <tr><td>
                 <table>
                     <tr class="tr_cap">
-                        <td width="15%"><label>PRIORITY</label></td>
-                        <td><label>ADDRESSEE(S)</label></td></tr>
+                        <td width="15%"><label>电报等级</label></td>
+                        <td><label>收电地点和单位</label></td></tr>
                     <tr class="tr_val">
                         <td style="vertical-align: top;"><< ≡ FF →</td>
                         <td class="bordered" style="height:90px; vertical-align: top;">
@@ -63,9 +63,9 @@
                 <table>
                     <tr class="tr_cap">
                         <td width="10">&nbsp;</td>
-                        <td width="18%"><label>FILING TIME</label></td>
+                        <td width="18%"><label>申报时间</label></td>
                         <td width="5%">&nbsp;</td>
-                        <td width="25%"><label>ORIGINATOR</label></td>
+                        <td width="25%"><label>发电地点和单位</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
                         <td></td>
@@ -82,26 +82,26 @@
             <tr><td>
                 <table>
                     <tr  class="tr_cap">
-                        <td width="27%"><label>3 MESSAGE TYPE</label></td>
-                        <td width="32%"><label>7 AIRCRAFT IDENTIFICATION</label></td>
-                        <td width="20%"><label>8 FLIGHT RULES</label></td>
-                        <td width="13%"><label>TYPE OF FLIGHT</label></td>
+                        <td width="27%"><label>&nbsp;&nbsp;&nbsp;&nbsp;报类</label></td>
+                        <td width="32%"><label>&nbsp;&nbsp;航空器识别标志</label></td>
+                        <td width="20%"><label>飞行规则</label></td>
+                        <td width="13%"><label>飞行种类</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
                         <td><<≡(FPL</td>
                         <td>- <span class="s_char"><tags:printchars var="${plan.aircraftIdentification}" /></span></td>
                         <td>- <span class="s_char"><span class="c_1">${plan.flightRules}</span></span></td>
-                        <td class="text-center"><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></span></td>
+                        <td><span class="s_char"><span class="c_1">${plan.typeOfFlight}</span></span></td>
                         <td><<≡</td></tr>
                 </table>
             </td></tr>
             <tr><td>
                 <table>
                     <tr  class="tr_cap">
-                        <td width="22%"><label>9 NUMBER</label></td>
-                        <td width="24%"><label>TYPE OF AIRCARAFT</label></td>
-                        <td  width="29%"><label>WAKE TURBULENCE CAT</label></td>
-                        <td width="15%"><label>10 EQUIPMENT</label></td>
+                        <td width="22%"><label>&nbsp;&nbsp;架数</label></td>
+                        <td width="24%"><label>航空器型别</label></td>
+                        <td  width="29%"><label>按尾流分类</label></td>
+                        <td width="15%"><label>&nbsp;&nbsp;设备</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
                         <td>- <span class="s_char"><fmt:formatNumber var="s_flightNumber" value="${plan.flightNumber}" pattern="00"/><tags:printchars var="${s_flightNumber}"/></span></td>
@@ -114,12 +114,12 @@
             <tr><td>
                 <table>
                     <tr  class="tr_cap">
-                        <td width="23%"><label  class="ml10">13 DEPARTURE AERODROME</label></td>
+                        <td width="23%"><label  class="ml10">&nbsp;&nbsp;起飞机场</label></td>
                         <td width="15%">&nbsp;</td>
-                        <td width="13%" class="text-center"><label>TIME</label></td>
+                        <td width="13%" class="text-center"><label>时间</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
-                        <td class="text-center"> - <span class="s_char"><tags:printchars var="${plan.departureAerodrome}"/></span></td>
+                        <td> - <span class="s_char"><tags:printchars var="${plan.departureAerodrome}"/></span></td>
                         <td></td>
                         <td><span class="s_char"><tags:printchars var="${plan.departureTime}"/></span></td>
                         <td style="padding-left:20px;"><<≡</td></tr>
@@ -129,11 +129,11 @@
                 <table>
                     <tr class="tr_cap">
                         <td width="1%">&nbsp;</td>
-                        <td width="15%"><label>15 CRUISING SPEED</label></td>
+                        <td width="15%"><label>巡航速度</label></td>
                         <td width="4%">&nbsp;</td>
-                        <td width="16%"><label>LEVEL</label></td>
+                        <td width="16%"><label>高度层</label></td>
                         <td width="3%">&nbsp;</td>
-                        <td><label>ROUTE</label></td></tr>
+                        <td><label>航路</label></td></tr>
                     <tr class="tr_val" >
                         <td style="vertical-align: top;">-</td>
                         <td style="vertical-align: top;"><span class="s_char"><tags:printchars var="${plan.cruisingSpeed}"/></span></td>
@@ -149,11 +149,12 @@
                 <table>
                     <tr class="tr_cap">
                         <td></td>
-                        <td><label  class="ml10"><br/>16 DESTINATION AERODROME</label></td>
+                        <td><label  class="ml10"><br/>目的机场</label></td>
                         <td></td>
-                        <td><label>TOTAL EET<br/>HR. MIN</label></td>
-                        <td><label><br/>ALTN AERODROME</label></td>
-                        <td><label><br/>2ND ALTN AERODROME</label></td>
+                        <td><label>预计经过总时间<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时.分</label></td>
+                        <td><label><br/>&nbsp;&nbsp;&nbsp;&nbsp;备降机场</label></td>
+                        <td><label><br/>&nbsp;&nbsp;&nbsp;&nbsp;第二备降机场</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
                         <td></td>
@@ -167,29 +168,31 @@
             </td></tr>
             <tr><td class="bordered-bottom">
                 <table>
-                    <tr class="tr_cap"><td><label  class="ml10">18 OTHER INFORMATION</label></td></tr>
+                    <tr class="tr_cap"><td><label  class="ml10">其它情报</label></td></tr>
                     <tr class="tr_val"><td class="bordered" style="height:90px; vertical-align: top;">${plan.otherInformation}
                         <div style="position:relative;float:right;top:60px;width:90px;">) <<≡</div></td></tr>
                 </table>
             </td></tr>
         </tbody>
         <tbody>
-            <tr  class="tr_cap"><td class="text-center"><label>SUPPLEMENTARY INFORMATION (NOT TO BE TRANSMITTED IN FPL MESSAGES)</label></td></tr>
+            <tr  class="tr_cap"><td class="text-center">
+                <%--<label>SUPPLEMENTARY INFORMATION (NOT TO BE TRANSMITTED IN FPL MESSAGES)</label>--%>
+            </td></tr>
             <tr><td>
                 <table>
                     <tr>
-                        <td colspan="2" style="height:20px;"><label>19 ENDURANCE</label></td>
+                        <td colspan="2" style="height:20px;text-align: center;"><label>续航能力</label></td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td colspan="5" class="text-center"><label>EMERGENCY RADIO</label></td>
+                        <td colspan="5" class="text-center"><label>应急无线电</label></td>
                         <td></td></tr>
                     <tr>
                         <td width="5%">&nbsp;</td>
-                        <td width="13%" class="text-center"><label>HR MIN</label></td>
+                        <td width="13%" class="text-center"><label>时 分</label></td>
                         <td width="6%">&nbsp;</td>
-                        <td width="18%"><label>PERSONS ON BOARD</label></td>
+                        <td width="18%" class="text-center"><label>机上人数</label></td>
                         <td width="25%">&nbsp;</td>
                         <td width="5%">&nbsp;</td>
                         <td width="3%"><label>UHF</label></td>
@@ -233,14 +236,14 @@
                 <table>
                     <tr class="tr_cap text-center">
                         <td width="1%">&nbsp;</td>
-                        <td width="12%"><label>SURIVIVAL EQUIPMENT</label></td>
-                        <td width="9%"><label><br/>POLAR</label></td>
-                        <td width="9%"><label><br/>DESERT</label></td>
-                        <td width="9%"><label><br/>MARITIME</label></td>
-                        <td width="9%"><label><br/>JUNGLE</label></td>
-                        <td width="9%"><label><br/>JACKETS</label></td>
-                        <td width="9%"><label><br/>LIGHT</label></td>
-                        <td width="9%"><label><br/>FLUORES</label></td>
+                        <td width="12%"><label><br/>救生设备</label></td>
+                        <td width="9%"><label><br/>极地</label></td>
+                        <td width="9%"><label><br/>沙漠</label></td>
+                        <td width="9%"><label><br/>海洋</label></td>
+                        <td width="9%"><label><br/>森林</label></td>
+                        <td width="9%"><label><br/>救生衣</label></td>
+                        <td width="9%"><label><br/>灯光</label></td>
+                        <td width="9%"><label><br/>荧光</label></td>
                         <td width="9%"><label><br/>UHF</label></td>
                         <td width="9%"><label><br/>VHF</label></td>
                         <td></td></tr>
@@ -311,13 +314,13 @@
             </td></tr>
             <tr><td><table>
                 <tr class="tr_cap">
-                    <td width="16%" colspan="2"><label>DINGHIES NUMBER</label></td>
+                    <td width="16%" colspan="2" class="text-center"><label>救生船数量</label></td>
                     <td width="3%"></td>
-                    <td width="10%"><label>CAPACITY</label></td>
+                    <td width="10%"><label>载量</label></td>
                     <td width="3%"></td>
-                    <td width="6%"><label>COVER</label></td>
+                    <td width="6%"><label>篷</label></td>
                     <td width="3%"></td>
-                    <td width="40%"><label>COLOUR</label></td>
+                    <td width="40%"><label>颜色</label></td>
                     <td></td>
                     <td></td></tr>
                 <tr class="tr_val">
@@ -346,7 +349,7 @@
                 <table>
                     <tr class="tr_cap">
                         <td width="3%"></td>
-                        <td><label>AIRCRAFT COLOUR AND MARKINGS</label></td></tr>
+                        <td><label>航空器颜色和标志</label></td></tr>
                     <tr class="tr_val">
                         <td> A/ </td>
                         <td class="bordered">${plan.aircraftColourAndMarkings}</td></tr>
@@ -356,7 +359,7 @@
                 <table>
                     <tr class="tr_cap">
                         <td width="7%"></td>
-                        <td><label>REMARKS</label></td>
+                        <td><label>备注</label></td>
                         <td></td></tr>
                     <tr class="tr_val">
                         <td> ->
@@ -373,7 +376,7 @@
             <tr><td><table>
                 <tr class="tr_cap">
                     <td width="6%"></td>
-                    <td><label>PILOT IN COMMAND</label></td>
+                    <td><label>待命飞行员</label></td>
                     <td></td>
                     <td></td></tr>
                 <tr class="tr_val">
@@ -385,15 +388,17 @@
             <tr>
                 <td class="bordered-bottom"><table>
                     <tr class="tr_cap">
-                        <td width="40%" style="vertical-align: bottom;"><label>FIELD BY</label></td>
-                        <td  style="vertical-align: bottom;"><label>SPACE RESERVED FOR ADDITIONAL REQUIREMENTS</label></td></tr>
+                        <td width="40%" style="vertical-align: bottom;"><label>填写人</label></td>
+                        <td  style="vertical-align: bottom;">
+                            <%--<label>SPACE RESERVED FOR ADDITIONAL REQUIREMENTS</label>--%>
+                        </td></tr>
                     </table></td></tr>
             <tr><td>
                     <table>
                     <tr class="tr_val">
                         <td style="width:40%;height:60px;border-right:1px solid #ddd;font-size:24px;text-align: center;vertical-align: middle;">${plan.filedBy}</td>
                         <td style="vertical-align: top;">
-                            <div style="line-height:25px;font-weight:normal;font-size:14px;">Please provide a telephone number so our operators can contact you if needed.</div>
+                            <div style="line-height:25px;font-weight:normal;font-size:14px;">请提供您的手机号码以便联系:</div>
                             <div style="font-size:20px;text-align:center;margin-top:5px;">${plan.telephone}</div>
                         </td></tr>
                 </table></td>
@@ -405,9 +410,9 @@
         <tbody>
             <tr>
                 <td>
-                    <label style="float:left;width:200px;display:inline-block;font-weight:bold;" >Audit Opinion:</label>
-                    <label class="radio" style="float:right;width:80px;display:inline-block;"><input type="radio" <c:if test="${plan.auditStatus=='YES'}">checked="checked"</c:if> name="auditStatus"  value="YES">Accept</label>
-                    <label class="radio" style="float:right;width:80px;display:inline-block"><input type="radio"  <c:if test="${plan.auditStatus=='NO'}">checked="checked"</c:if>name="auditStatus"  value="NO">Reject</label>
+                    <label style="float:left;width:200px;display:inline-block;font-weight:bold;" >审核意见:</label>
+                    <label class="radio" style="float:right;width:80px;display:inline-block;"><input type="radio" <c:if test="${plan.auditStatus=='YES'}">checked="checked"</c:if> name="auditStatus"  value="YES">通过</label>
+                    <label class="radio" style="float:right;width:80px;display:inline-block"><input type="radio"  <c:if test="${plan.auditStatus=='NO'}">checked="checked"</c:if>name="auditStatus"  value="NO">驳回</label>
                 </td>
                 <td>&nbsp;</td>
             </tr>
