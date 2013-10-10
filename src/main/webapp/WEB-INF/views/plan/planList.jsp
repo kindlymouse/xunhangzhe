@@ -16,7 +16,7 @@
     <div class="row">
         <div class="span5">
             <form class="form-search" action="#">
-                <label>收电地点和单位：</label> <input type="text" name="search_LIKE_ADDRESSEE" class="input-medium" value="${param.search_LIKE_ADDRESSEE}">
+                <label>收电地点和单位：</label> <input type="text" name="search_LIKE_addressee" class="input-medium" value="${param.search_LIKE_addressee}">
                 <button type="submit" class="btn" id="search_btn">查询</button>
             </form>
         </div>
@@ -54,7 +54,8 @@
                         <td>${plan.auditStatus} </td>
                     </c:otherwise>
                 </c:choose>
-                <td><a href="${ctx}/plan/audit/${plan.id}">审核</a>&nbsp;&nbsp;<a href="${ctx}/plan/delete/${plan.id}">删除</a></td>
+                <td><a href="${ctx}/plan/audit/${plan.id}">审核</a>&nbsp;&nbsp;
+                    <a href="${ctx}/plan/delete/${plan.id}" onclick="return confirm('你确定要删除？')">删除</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>

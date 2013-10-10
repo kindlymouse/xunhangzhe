@@ -41,7 +41,7 @@
                 <td>${brief.sysFillUser.name}</td>
                 <td><fmt:formatDate value="${brief.sysFillTime}" pattern="yyyy-MM-dd  HH:mm" /></td>
 				<td style="text-align: center;">${brief.pushed}</td>
-                <td><a href="${ctx}/brief/delete/${brief.id}">删除</a></td>
+                <td><a href="${ctx}/brief/delete/${brief.id}" onclick="return confirm('你确定要删除？')">删除</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>

@@ -35,7 +35,7 @@
                 <td>${airport.owner}</td>
                 <td>${airport.telephone}</td>
                 <td>${airport.airportUse}</td>
-                <td><a href="${ctx}/airport/delete/${airport.id}">删除</a></td>
+                <td><a href="${ctx}/airport/delete/${airport.id}" onclick="return confirm('你确定要删除？删除后将不可恢复！')">删除</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>

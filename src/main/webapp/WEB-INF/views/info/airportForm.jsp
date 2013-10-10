@@ -34,7 +34,7 @@
                 <td width="25%" style="vertical-align: middle;text-align: center;">机场名称</td>
                 <td colspan="2"><input class="colspan3 required" type="text" id="airport_name" name="name" value="${airport.name}" minlength="2"/></td>
                 <td  style="vertical-align: middle;">
-                    <input type="radio" value="A" name="type" id="r_type_a" <c:if test="${airport.type=='A'}">checked="checked"</c:if>> <label for="r_type_a" style="display:inline-block">机场</label>&nbsp;
+                    <input type="radio" value="A" name="type" id="r_type_a" <c:if test="${airport.type=='A'||airport.type==null}">checked="checked"</c:if>> <label for="r_type_a" style="display:inline-block">机场</label>&nbsp;
                     <input type="radio" value="L" name="type" id="r_type_l"  <c:if test="${airport.type=='L'}">checked="checked"</c:if>><label for="r_type_l" style="display:inline-block">起降点</label></td>
             </tr>
             <tr>

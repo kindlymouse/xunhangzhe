@@ -35,7 +35,7 @@
                 <td>${landport.owner}</td>
                 <td>${landport.telephone}</td>
                 <td>${landport.landportUse}</td>
-                <td><a href="${ctx}/landport/delete/${landport.id}">删除</a></td>
+                <td><a href="${ctx}/landport/delete/${landport.id}" onclick="return confirm('你确定要删除？')">删除</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>
