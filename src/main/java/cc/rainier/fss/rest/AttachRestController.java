@@ -1,7 +1,10 @@
 package cc.rainier.fss.rest;
 
 import cc.rainier.fss.entity.Attach;
+import cc.rainier.fss.entity.Comment;
+import cc.rainier.fss.entity.User;
 import cc.rainier.fss.service.social.AttachService;
+import cc.rainier.fss.service.social.CommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -40,7 +44,8 @@ public class AttachRestController extends BaseJsonpController{
 
     @Autowired
     private AttachService attachService;
-
+    @Autowired
+    private CommentService commentService;
 
     /**
      * 获取Attach列表，支持分页
@@ -83,42 +88,54 @@ public class AttachRestController extends BaseJsonpController{
 
     @RequestMapping(value = "upload", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<?> upload( @RequestParam MultipartFile file, @RequestParam("callback") String callback) throws IllegalStateException, IOException {
+    public ResponseEntity<?> upload( @RequestParam MultipartFile file,
+                                     @RequestParam("userId") String userId,
+                                     @RequestParam("description") String description,
+                                     @RequestParam("callback") String callback, HttpServletRequest request) throws IllegalStateException, IOException {
         if (file != null) {
             //项目根目录
-            Resource resource = new ClassPathResource("./");
-            String filePath = "";
-            try {
-                filePath = resource.getFile().getAbsolutePath();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            //文件保存目录
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMM");
-            String yymm=sdf.format(new Date());
-            filePath = filePath + "upload" +  File.separator + yymm;
-            File myFile = new File(filePath);
-            if (!myFile.exists()) {
-                myFile.mkdirs();
-            }
+            String realPath = request.getSession().getServletContext().getRealPath("/");
             //生成新的文件名
             String filename = file.getOriginalFilename();
             String newname = UUID.randomUUID().toString() + filename.substring(filename.lastIndexOf("."));
-            String savepath = filePath + File.separator + newname;
+            //文件保存目录
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyyMM");
+            String yymm=sdf.format(new Date());
+            String savePath =  "static/upload/"  + yymm + "/";
 
-            File localFile = new File(savepath);
+            File myFile = new File(realPath+savePath);
+            if (!myFile.exists()) {
+                myFile.mkdirs();
+            }
+
+            realPath =  realPath + savePath + newname;
+
+            File localFile = new File(realPath);
             file.transferTo(localFile);
 
-            String retjson = "{savepath:'" + savepath + "', filename:'" + filename  + "'}";
+            //保存附件数据
+            Attach attach = new Attach();
+            attach.setName(filename);
+            attach.setSaveName(newname);
+            attach.setAttachType(file.getContentType());
+            attach.setExtension(filename.substring(filename.lastIndexOf(".")));
+            attach.setCtime(new Date());
+            attach.setDescription(description);
+            User user = new User(Long.valueOf(userId));
+            attach.setUser(user);
+            attach.setSavePath(savePath);
+            attach.setSize(String.valueOf(file.getSize()));
+            attach.setFlagDel(0);
+            attachService.saveAttach(attach);
+            logger.info("save attach sucessful!");
+            Long id = attach.getId();
 
-            logger.debug(retjson);
+            return new ResponseEntity(getReturnByJson(callback,"{sucess:'true', formId:"+ id +"}" ), HttpStatus.CREATED);
 
-            return new ResponseEntity(getReturnByJson(callback,retjson), HttpStatus.OK);
         }  else{
             logger.warn("upload is null, check your code.");
             return null;
         }
 
     }
-
 }

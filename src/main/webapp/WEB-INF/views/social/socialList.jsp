@@ -126,27 +126,28 @@
 
 <div class="demo clearfix">
 <div class="item_list infinite_scroll">
-<div class="item masonry_brick">
-    <div class="item_t">
-        <div class="img">
-            <a href="http://www.jsfoot.com/js/images/more/2012-05-15/608.html"><img width="210" height="285" alt="js lazyload实现网页图片延迟加载特效" src="${ctx}/static/social/images/pic/01.jpg" /></a>
-        </div>
-        <div class="title"><span>航空事业多美女，速来围观.</span></div>
-    </div>
-    <div class="item_b clearfix">
-        <div class="items_author fl">
-            <a href="http://www.jsfoot.com" class="like_btn"></a>
-            <em class="bold">916</em>
-        </div>
-        <div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>
-    </div>
-</div><!--item end-->
+<%--<div class="item masonry_brick">--%>
+    <%--<div class="item_t">--%>
+        <%--<div class="img">--%>
+            <%--<a href="http://www.jsfoot.com/js/images/more/2012-05-15/608.html"><img width="210" height="285" alt="js lazyload实现网页图片延迟加载特效" src="${ctx}/static/social/images/pic/01.jpg" /></a>--%>
+        <%--</div>--%>
+        <%--<div class="title"><span>航空事业多美女，速来围观.</span></div>--%>
+    <%--</div>--%>
+    <%--<div class="item_b clearfix">--%>
+        <%--<div class="items_author fl">--%>
+            <%--<a href="http://www.jsfoot.com" class="like_btn"></a>--%>
+            <%--<em class="bold">916</em>--%>
+        <%--</div>--%>
+        <%--<div class="items_createtime fr"><a href="http://www.jsfoot.com">评论</a><em class="bold">(0)</em></div>--%>
+    <%--</div>--%>
+<%--</div>--%>
+    <!--item end-->
 
 <c:forEach items="${attaches.content}" var="attach"  varStatus="status">
     <div class="item masonry_brick">
         <div class="item_t">
             <div class="img">
-                <a href="#"><img width="210" height="164" alt="${attach.description}" src="${ctx}/static/social/images/pic/02.jpg" /></a>
+                <a href="#"><img width="210" height="164" alt="${attach.description}" src="${ctx}/${attach.savePath}${attach.saveName}" /></a>
             </div>
             <div class="title"><span>${attach.description}</span></div>
         </div>

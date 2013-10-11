@@ -20,10 +20,15 @@ public class Attach extends IdEntity {
     private String attachType;
     private String size;
     private String  extension;
-    private String hash;
     private Integer flagDel;
     private String  savePath;
     private String saveName;
+
+    public Attach(){
+    }
+    public Attach(Long id){
+        this.id = id;
+    }
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
     public Date getCtime() {
@@ -64,14 +69,6 @@ public class Attach extends IdEntity {
 
     public void setExtension(String extension) {
         this.extension = extension;
-    }
-
-    public String getHash() {
-        return hash;
-    }
-
-    public void setHash(String hash) {
-        this.hash = hash;
     }
 
     public Integer getFlagDel() {
