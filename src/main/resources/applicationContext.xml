@@ -54,8 +54,12 @@
 
 	<!-- JSR303 Validator定义 -->
  	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
-	
-	<!-- production环境 -->
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+         />
+
+    <!-- production环境 -->
  	<beans profile="production">
  		<context:property-placeholder ignore-unresolvable="true"
 			location="classpath*:/application.properties" />	
