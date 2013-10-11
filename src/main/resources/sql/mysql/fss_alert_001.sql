@@ -1,10 +1,10 @@
 ALTER TABLE `fs_attach`
-    DROP COLUMN `from`;
+    DROP COLUMN `from`,
 	DROP COLUMN `hash`,
 	DROP COLUMN `private`;
 
 ALTER TABLE `fs_attach`
-    CHANGE COLUMN `flag_del` `flag_del` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '统一的is_del' AFTER `private`;
+    CHANGE COLUMN `flag_del` `flag_del` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '统一的is_del';
 
 CREATE TABLE `fs_comment` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键，评论编号',
