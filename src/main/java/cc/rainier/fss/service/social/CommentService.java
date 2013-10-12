@@ -40,6 +40,32 @@ public class CommentService extends BaseService {
 		return (List<Comment>) commentDao.findAll();
 	}
 
+    /**
+     * 获取指定附件的评论
+     * @param attachId
+     * @param searchParams
+     * @param pageNumber
+     * @param pageSize
+     * @param sortType
+     * @return
+     */
+    public  Page<Comment> getAttachComment(Long attachId, Map<String, Object> searchParams, int pageNumber, int pageSize,
+            String sortType) {
+        PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
+        Specification<Comment> spec = buildSpecification4Attach(attachId, searchParams);
+
+        return commentDao.findAll(spec, pageRequest);
+    }
+
+    /**
+     * 获取指定用户发表的评论
+     * @param userId
+     * @param searchParams
+     * @param pageNumber
+     * @param pageSize
+     * @param sortType
+     * @return
+     */
 	public Page<Comment> getUserComment(Long userId, Map<String, Object> searchParams, int pageNumber, int pageSize,
 			String sortType) {
 		PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
@@ -47,6 +73,19 @@ public class CommentService extends BaseService {
 
 		return commentDao.findAll(spec, pageRequest);
 	}
+
+    /**
+     * 创建动态查询条件组合 for Attach.
+     */
+    protected Specification<Comment> buildSpecification4Attach(Long attachId, Map<String, Object> searchParams) {
+        if ( searchParams == null ) return null;
+        Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
+        if(attachId !=null && attachId > 0) {
+            filters.put("attach.id", new SearchFilter("attach.id", Operator.EQ, attachId));
+        }
+        Specification<Comment> spec = DynamicSpecifications.bySearchFilter(filters.values(), Comment.class);
+        return spec;
+    }
 
     /**
      * 创建动态查询条件组合.
