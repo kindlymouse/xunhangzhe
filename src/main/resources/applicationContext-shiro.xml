@@ -27,7 +27,8 @@
 				/logout = logout
 				/static/** = anon
 				/api/** = anon
-				/register/** = anon
+                /register/** = anon
+                /Map/** = anon
 				/admin/** = roles[admin]
 				/** = user
 			</value>

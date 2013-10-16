@@ -1,9 +1,16 @@
 package cc.rainier.fss.rest;
 
+import cc.rainier.fss.entity.User;
+import cc.rainier.fss.service.account.AccountService;
+import cc.rainier.fss.service.account.ShiroDbRealm;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springside.modules.utils.Encodes;
 
 
 /**
@@ -17,13 +24,16 @@ import org.springframework.web.bind.annotation.*;
 public class LoginRestController extends BaseJsonpController{
     private static Logger logger = LoggerFactory.getLogger(LoginRestController.class);
 
+    @Autowired
+    private AccountService accountService;
+
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String login(@RequestParam("userId") String userId,@RequestParam("password") String password,@RequestParam("callback") String callback) {
 
         logger.debug("Login From API");
-
-        return getReturnByJson(callback,"{result:'sucess', userId:'"+ userId +"', userName:'超级管理员', userCode: '1'}" );
+        User user = accountService.findUserByLoginName(userId);
+        return getReturnByJson(callback,"{result:'sucess', userId:'"+ user.getLoginName() +"', userName:'"+user.getName()+"', userCode: '"+user.getId()+"'}" );
     }
 
     @RequestMapping(value = "test",method = RequestMethod.GET)

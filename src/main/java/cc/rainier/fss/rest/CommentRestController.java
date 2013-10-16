@@ -40,29 +40,34 @@ public class CommentRestController extends BaseJsonpController{
     private static Logger logger = LoggerFactory.getLogger(CommentRestController.class);
 
     @Autowired
-    private AttachService attachService;
-    @Autowired
     private CommentService commentService;
 
-     @RequestMapping(value = "comment", method = RequestMethod.POST)
+    @RequestMapping(value = "attach/{id}" ,method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> get(@PathVariable("id") Long id,@RequestParam("page") String pageNum,@RequestParam("limit") String pageLimit,@RequestParam("callback") String callback) {
+        Page<Comment> commentPage = commentService.getAttachComment(id,null,Integer.parseInt(pageNum),Integer.parseInt(pageLimit),"auto");
+        if (commentPage == null) {
+            logger.warn("Flight Plan with id {} not found", id);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity(getReturnByJson(callback,toJson(commentPage.getContent())), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "create", method = RequestMethod.GET)
     public ResponseEntity<?> comment(@RequestParam("params") String commentStr,@RequestParam("userId") String userId, @RequestParam("callback") String callback) {
 
         Map paramsMap = jsonToMap(commentStr);
         Comment comment = new Comment();
-         comment.setAttach(new Attach(Long.valueOf((String)paramsMap.get("attachId"))));
+        comment.setAttach(new Attach(Long.valueOf((String)paramsMap.get("attachId"))));
         comment.setContent((String) paramsMap.get("content"));
-         comment.setUser(new User(Long.valueOf(userId)));
-         comment.setCtime(new Date());
+        comment.setUser(new User(Long.valueOf(userId)));
+        comment.setFlagDel(0);
+        comment.setCtime(new Date());
 
         // 保存评论
         commentService.saveComment(comment);
 
         Long id = comment.getId();
-        /**
-         URI uri = uriBuilder.path("/api/v1/fpl/" + id).build().toUri();
-         HttpHeaders headers = new HttpHeaders();
-         headers.setLocation(uri);
-         **/
+
 
         return new ResponseEntity(getReturnByJson(callback,"{sucess:'true', formId:"+ id +"}" ), HttpStatus.CREATED);
     }

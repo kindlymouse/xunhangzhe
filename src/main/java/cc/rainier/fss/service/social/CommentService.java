@@ -13,6 +13,7 @@ import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -78,8 +79,8 @@ public class CommentService extends BaseService {
      * 创建动态查询条件组合 for Attach.
      */
     protected Specification<Comment> buildSpecification4Attach(Long attachId, Map<String, Object> searchParams) {
-        if ( searchParams == null ) return null;
-        Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
+        if ( attachId ==null && searchParams == null ) return null;
+        Map<String, SearchFilter> filters = new HashMap<String, SearchFilter>();
         if(attachId !=null && attachId > 0) {
             filters.put("attach.id", new SearchFilter("attach.id", Operator.EQ, attachId));
         }

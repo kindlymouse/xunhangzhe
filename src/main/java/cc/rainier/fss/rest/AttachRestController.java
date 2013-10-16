@@ -86,7 +86,7 @@ public class AttachRestController extends BaseJsonpController{
         return new ResponseEntity(getReturnByJson(callback,toJson(attach)), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "upload", method = RequestMethod.POST)
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<?> upload( @RequestParam MultipartFile file,
                                      @RequestParam("userId") String userId,
@@ -97,7 +97,13 @@ public class AttachRestController extends BaseJsonpController{
             String realPath = request.getSession().getServletContext().getRealPath("/");
             //生成新的文件名
             String filename = file.getOriginalFilename();
-            String newname = UUID.randomUUID().toString() + filename.substring(filename.lastIndexOf("."));
+            String newname = UUID.randomUUID().toString();
+            if(filename.lastIndexOf(".")<0){
+                newname = newname + ".jpg";
+            } else{
+                newname = newname + filename.substring(filename.lastIndexOf("."));
+            }
+
             //文件保存目录
             SimpleDateFormat sdf=new SimpleDateFormat("yyyyMM");
             String yymm=sdf.format(new Date());
@@ -118,7 +124,11 @@ public class AttachRestController extends BaseJsonpController{
             attach.setName(filename);
             attach.setSaveName(newname);
             attach.setAttachType(file.getContentType());
-            attach.setExtension(filename.substring(filename.lastIndexOf(".")));
+            if(filename.lastIndexOf(".")<0){
+                attach.setExtension(".jpg");
+            }else{
+                attach.setExtension(filename.substring(filename.lastIndexOf(".")));
+            }
             attach.setCtime(new Date());
             attach.setDescription(description);
             User user = new User(Long.valueOf(userId));
@@ -130,7 +140,7 @@ public class AttachRestController extends BaseJsonpController{
             logger.info("save attach sucessful!");
             Long id = attach.getId();
 
-            return new ResponseEntity(getReturnByJson(callback,"{sucess:'true', formId:"+ id +"}" ), HttpStatus.CREATED);
+            return new ResponseEntity("{result:'sucess', formId:"+ id +"}" , HttpStatus.CREATED);
 
         }  else{
             logger.warn("upload is null, check your code.");
