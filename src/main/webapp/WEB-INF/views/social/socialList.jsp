@@ -147,7 +147,7 @@
     <div class="item masonry_brick">
         <div class="item_t">
             <div class="img">
-                <a href="#"><img width="210" height="164" alt="${attach.description}" src="${ctx}/${attach.savePath}${attach.saveName}" /></a>
+                <a href="${ctx}/social/view/${attach.id}"><img width="210" height="164" alt="${attach.description}" src="${ctx}/${attach.savePath}${attach.saveName}" /></a>
             </div>
             <div class="title"><span>${attach.description}</span></div>
         </div>

@@ -42,6 +42,16 @@ public class CommentService extends BaseService {
 	}
 
     /**
+     * 获取当前Attach的所有评论
+     * @param attachId
+     * @return
+     */
+    public List<Comment> getAttachComment(Long attachId){
+        Map<String, Object> searchParams = new HashMap<String,Object>();
+        Specification<Comment> spec = buildSpecification4Attach(attachId, searchParams);
+        return commentDao.findAll(spec);
+    }
+    /**
      * 获取指定附件的评论
      * @param attachId
      * @param searchParams

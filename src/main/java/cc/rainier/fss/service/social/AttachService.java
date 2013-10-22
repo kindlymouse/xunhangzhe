@@ -6,6 +6,7 @@ import cc.rainier.fss.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +29,37 @@ public class AttachService extends BaseService {
 	public Attach getAttach(Long id) {
 		return attachDao.findOne(id);
 	}
+
+    public Attach getAttachPre(Long id){
+
+        Map<String, SearchFilter> filters = new HashMap<String, SearchFilter>();
+        filters.put("id", new SearchFilter("id", Operator.GT, id));
+        Specification<Attach> spec = DynamicSpecifications.bySearchFilter(filters.values(), Attach.class);
+
+        PageRequest pageRequest= new PageRequest(0,1,new Sort(Sort.Direction.ASC, "id"));
+
+        Page<Attach> list = attachDao.findAll(spec, pageRequest);
+        if(list.getContent().size()==0){
+            return null;
+        }else{
+            return list.getContent().get(0);
+        }
+    }
+
+    public Attach getAttachNext(Long id){
+        Map<String, SearchFilter> filters = new HashMap<String, SearchFilter>();
+        filters.put("id", new SearchFilter("id", Operator.LT, id));
+        Specification<Attach> spec = DynamicSpecifications.bySearchFilter(filters.values(), Attach.class);
+
+        PageRequest pageRequest= new PageRequest(0,1,new Sort(Sort.Direction.DESC, "id"));
+
+        Page<Attach> list = attachDao.findAll(spec, pageRequest);
+        if(list.getContent().size()==0){
+            return null;
+        }else{
+            return list.getContent().get(0);
+        }
+    }
 
 	public void saveAttach(Attach entity) {
 		attachDao.save(entity);
